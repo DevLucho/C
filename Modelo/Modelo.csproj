@@ -42,6 +42,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClsCita.cs" />
+    <Compile Include="ClsEnfermedad.cs" />
+    <Compile Include="ClsEnteSalud.cs" />
+    <Compile Include="ClsEspecialista.cs" />
+    <Compile Include="ClsPersona.cs" />
     <Compile Include="ORM.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

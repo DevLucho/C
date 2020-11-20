@@ -1,4 +1,4 @@
-﻿<?xml version="1.0" encoding="utf-8"?><Database Name="rvs" Class="DataClasses1DataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="rvs" Class="ORMDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
   <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-C01R8KNQ\SQLEXPRESS;Initial Catalog=rvs;Integrated Security=True" SettingsObjectName="Modelo.Properties.Settings" SettingsPropertyName="rvsConnectionString" Provider="System.Data.SqlClient" />
   <Table Name="dbo.cita" Member="cita">
     <Type Name="cita">
@@ -124,6 +124,25 @@
       <Column Name="id_enfermedad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Association Name="enfermedad_sintoma_enfermedad" Member="enfermedad" ThisKey="id_enfermedad" OtherKey="id_enfermedad" Type="enfermedad" IsForeignKey="true" />
       <Association Name="sintoma_sintoma_enfermedad" Member="sintoma" ThisKey="id_sintoma" OtherKey="id_sintoma" Type="sintoma" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VistaEnfermedad" Member="VistaEnfermedad">
+    <Type Name="VistaEnfermedad">
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="sintoma" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="recomendacion" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VistaEspecialista" Member="VistaEspecialista">
+    <Type Name="VistaEspecialista">
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ciudad" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="especialidad" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="num_licencia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fech_expedicion_licen" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="correo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="celular" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.sp_login" Method="sp_login">

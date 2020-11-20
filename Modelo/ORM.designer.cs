@@ -23,7 +23,7 @@ namespace Modelo
 	
 	
 	[global::System.Data.Linq.Mapping.DatabaseAttribute(Name="rvs")]
-	public partial class DataClasses1DataContext : System.Data.Linq.DataContext
+	public partial class ORMDataContext : System.Data.Linq.DataContext
 	{
 		
 		private static System.Data.Linq.Mapping.MappingSource mappingSource = new AttributeMappingSource();
@@ -68,31 +68,31 @@ namespace Modelo
     partial void Deletesintoma_enfermedad(sintoma_enfermedad instance);
     #endregion
 		
-		public DataClasses1DataContext() : 
+		public ORMDataContext() : 
 				base(global::Modelo.Properties.Settings.Default.rvsConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(string connection) : 
+		public ORMDataContext(string connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(System.Data.IDbConnection connection) : 
+		public ORMDataContext(System.Data.IDbConnection connection) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public ORMDataContext(string connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
 		}
 		
-		public DataClasses1DataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
+		public ORMDataContext(System.Data.IDbConnection connection, System.Data.Linq.Mapping.MappingSource mappingSource) : 
 				base(connection, mappingSource)
 		{
 			OnCreated();
@@ -191,6 +191,22 @@ namespace Modelo
 			get
 			{
 				return this.GetTable<sintoma_enfermedad>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VistaEnfermedad> VistaEnfermedad
+		{
+			get
+			{
+				return this.GetTable<VistaEnfermedad>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VistaEspecialista> VistaEspecialista
+		{
+			get
+			{
+				return this.GetTable<VistaEspecialista>();
 			}
 		}
 		
@@ -2778,6 +2794,222 @@ namespace Modelo
 			if ((this.PropertyChanged != null))
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VistaEnfermedad")]
+	public partial class VistaEnfermedad
+	{
+		
+		private string _nombre;
+		
+		private string _descripcion;
+		
+		private string _sintoma;
+		
+		private string _recomendacion;
+		
+		public VistaEnfermedad()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintoma", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string sintoma
+		{
+			get
+			{
+				return this._sintoma;
+			}
+			set
+			{
+				if ((this._sintoma != value))
+				{
+					this._sintoma = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_recomendacion", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string recomendacion
+		{
+			get
+			{
+				return this._recomendacion;
+			}
+			set
+			{
+				if ((this._recomendacion != value))
+				{
+					this._recomendacion = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VistaEspecialista")]
+	public partial class VistaEspecialista
+	{
+		
+		private string _nombre;
+		
+		private string _ciudad;
+		
+		private string _especialidad;
+		
+		private int _num_licencia;
+		
+		private System.DateTime _fech_expedicion_licen;
+		
+		private string _correo;
+		
+		private string _celular;
+		
+		public VistaEspecialista()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciudad", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ciudad
+		{
+			get
+			{
+				return this._ciudad;
+			}
+			set
+			{
+				if ((this._ciudad != value))
+				{
+					this._ciudad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_especialidad", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string especialidad
+		{
+			get
+			{
+				return this._especialidad;
+			}
+			set
+			{
+				if ((this._especialidad != value))
+				{
+					this._especialidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_num_licencia", DbType="Int NOT NULL")]
+		public int num_licencia
+		{
+			get
+			{
+				return this._num_licencia;
+			}
+			set
+			{
+				if ((this._num_licencia != value))
+				{
+					this._num_licencia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fech_expedicion_licen", DbType="Date NOT NULL")]
+		public System.DateTime fech_expedicion_licen
+		{
+			get
+			{
+				return this._fech_expedicion_licen;
+			}
+			set
+			{
+				if ((this._fech_expedicion_licen != value))
+				{
+					this._fech_expedicion_licen = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_correo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string correo
+		{
+			get
+			{
+				return this._correo;
+			}
+			set
+			{
+				if ((this._correo != value))
+				{
+					this._correo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_celular", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string celular
+		{
+			get
+			{
+				return this._celular;
+			}
+			set
+			{
+				if ((this._celular != value))
+				{
+					this._celular = value;
+				}
 			}
 		}
 	}
