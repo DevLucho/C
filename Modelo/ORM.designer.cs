@@ -69,7 +69,7 @@ namespace Modelo
     #endregion
 		
 		public ORMDataContext() : 
-				base(global::Modelo.Properties.Settings.Default.rvsConnectionString, mappingSource)
+				base(global::Modelo.Properties.Settings.Default.rvsConnectionString1, mappingSource)
 		{
 			OnCreated();
 		}
@@ -2889,13 +2889,13 @@ namespace Modelo
 		
 		private string _especialidad;
 		
-		private int _num_licencia;
-		
-		private System.DateTime _fech_expedicion_licen;
-		
 		private string _correo;
 		
 		private string _celular;
+		
+		private int _num_licencia;
+		
+		private System.DateTime _fech_expedicion_licen;
 		
 		public VistaEspecialista()
 		{
@@ -2949,38 +2949,6 @@ namespace Modelo
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_num_licencia", DbType="Int NOT NULL")]
-		public int num_licencia
-		{
-			get
-			{
-				return this._num_licencia;
-			}
-			set
-			{
-				if ((this._num_licencia != value))
-				{
-					this._num_licencia = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fech_expedicion_licen", DbType="Date NOT NULL")]
-		public System.DateTime fech_expedicion_licen
-		{
-			get
-			{
-				return this._fech_expedicion_licen;
-			}
-			set
-			{
-				if ((this._fech_expedicion_licen != value))
-				{
-					this._fech_expedicion_licen = value;
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_correo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
 		public string correo
 		{
@@ -3009,6 +2977,38 @@ namespace Modelo
 				if ((this._celular != value))
 				{
 					this._celular = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_num_licencia", DbType="Int NOT NULL")]
+		public int num_licencia
+		{
+			get
+			{
+				return this._num_licencia;
+			}
+			set
+			{
+				if ((this._num_licencia != value))
+				{
+					this._num_licencia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fech_expedicion_licen", DbType="Date NOT NULL")]
+		public System.DateTime fech_expedicion_licen
+		{
+			get
+			{
+				return this._fech_expedicion_licen;
+			}
+			set
+			{
+				if ((this._fech_expedicion_licen != value))
+				{
+					this._fech_expedicion_licen = value;
 				}
 			}
 		}

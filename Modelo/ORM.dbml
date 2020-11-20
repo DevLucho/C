@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="rvs" Class="ORMDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-C01R8KNQ\SQLEXPRESS;Initial Catalog=rvs;Integrated Security=True" SettingsObjectName="Modelo.Properties.Settings" SettingsPropertyName="rvsConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-2B8C9Q9\SQLEXPRESS;Initial Catalog=rvs;Integrated Security=True" SettingsObjectName="Modelo.Properties.Settings" SettingsPropertyName="rvsConnectionString1" Provider="System.Data.SqlClient" />
   <Table Name="dbo.cita" Member="cita">
     <Type Name="cita">
       <Column Name="id_cita" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -139,10 +139,10 @@
       <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="ciudad" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="especialidad" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="num_licencia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="fech_expedicion_licen" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="correo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="celular" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="num_licencia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fech_expedicion_licen" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.sp_login" Method="sp_login">

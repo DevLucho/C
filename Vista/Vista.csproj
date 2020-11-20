@@ -67,10 +67,50 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="agregarPersona.aspx" />
+    <Content Include="bootstrap\bootstrap-rtl.css" />
+    <Content Include="bootstrap\bootstrap-rtl.min.css" />
+    <Content Include="bootstrap\bootstrap.css" />
+    <Content Include="bootstrap\bootstrap.min.css" />
+    <Content Include="consultaEspecialidades.aspx" />
+    <Content Include="css\login.css" />
+    <Content Include="css\registro.css" />
+    <Content Include="font\css\font-awesome.css" />
+    <Content Include="font\css\font-awesome.min.css" />
+    <Content Include="fuente\iconic\css\material-design-iconic-font.css" />
+    <Content Include="fuente\iconic\css\material-design-iconic-font.min.css" />
+    <Content Include="fuente\iconic\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="js\bootstrap.js" />
+    <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\jquery.js" />
+    <Content Include="js\plugins\flot\excanvas.min.js" />
+    <Content Include="js\plugins\flot\flot-data.js" />
+    <Content Include="js\plugins\flot\jquery.flot.js" />
+    <Content Include="js\plugins\flot\jquery.flot.pie.js" />
+    <Content Include="js\plugins\flot\jquery.flot.resize.js" />
+    <Content Include="js\plugins\flot\jquery.flot.tooltip.min.js" />
+    <Content Include="js\plugins\morris\morris-data.js" />
+    <Content Include="js\plugins\morris\morris.js" />
+    <Content Include="js\plugins\morris\morris.min.js" />
+    <Content Include="js\plugins\morris\raphael.min.js" />
     <Content Include="login.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="agregarPersona.aspx.cs">
+      <DependentUpon>agregarPersona.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="agregarPersona.aspx.designer.cs">
+      <DependentUpon>agregarPersona.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="consultaEspecialidades.aspx.cs">
+      <DependentUpon>consultaEspecialidades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="consultaEspecialidades.aspx.designer.cs">
+      <DependentUpon>consultaEspecialidades.aspx</DependentUpon>
+    </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -79,15 +119,51 @@
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Site1.Master.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site1.Master.designer.cs">
+      <DependentUpon>Site1.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="fuente\iconic\fonts\Material-Design-Iconic-Font.eot" />
+    <Content Include="fuente\iconic\fonts\Material-Design-Iconic-Font.ttf" />
+    <Content Include="fuente\iconic\fonts\Material-Design-Iconic-Font.woff" />
+    <Content Include="fuente\iconic\fonts\Material-Design-Iconic-Font.woff2" />
+    <Content Include="fuente\poppins\Poppins-Black.ttf" />
+    <Content Include="fuente\poppins\Poppins-BlackItalic.ttf" />
+    <Content Include="fuente\poppins\Poppins-Bold.ttf" />
+    <Content Include="fuente\poppins\Poppins-BoldItalic.ttf" />
+    <Content Include="fuente\poppins\Poppins-ExtraBold.ttf" />
+    <Content Include="fuente\poppins\Poppins-ExtraBoldItalic.ttf" />
+    <Content Include="fuente\poppins\Poppins-ExtraLight.ttf" />
+    <Content Include="fuente\poppins\Poppins-ExtraLightItalic.ttf" />
+    <Content Include="fuente\poppins\Poppins-Italic.ttf" />
+    <Content Include="fuente\poppins\Poppins-Light.ttf" />
+    <Content Include="fuente\poppins\Poppins-LightItalic.ttf" />
+    <Content Include="fuente\poppins\Poppins-Medium.ttf" />
+    <Content Include="fuente\poppins\Poppins-MediumItalic.ttf" />
+    <Content Include="fuente\poppins\Poppins-Regular.ttf" />
+    <Content Include="fuente\poppins\Poppins-SemiBold.ttf" />
+    <Content Include="fuente\poppins\Poppins-SemiBoldItalic.ttf" />
+    <Content Include="fuente\poppins\Poppins-Thin.ttf" />
+    <Content Include="fuente\poppins\Poppins-ThinItalic.ttf" />
     <None Include="packages.config" />
+    <Content Include="Site1.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
     <None Include="Web.Release.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Modelo\Modelo.csproj">
+      <Project>{ca135b2e-4016-4e7d-9d42-5da8afaf1392}</Project>
+      <Name>Modelo</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
