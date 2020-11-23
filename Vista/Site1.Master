@@ -6,50 +6,21 @@
 <head runat="server">
 <meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
     <title>Index</title>
+    <link  rel="stylesheet" href="css/dashPersona.css"/>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
 <body>
     <form id="form1" runat="server">
         <div>
-            Mi index :3, mio no de lucho :v
-             <div id="wrapper">
-        <!-- Navigation -->
-        <nav class="navbar navbar-inverse navbar-fixed-top" role="navigation">
-            <!-- Brand and toggle get grouped for better mobile display -->
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
-                    <span class="sr-only">Toggle navigation</span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                <a class="navbar-brand" href="subastas.php"   style="font-family: Poppins-Bold;font-size:40px">SubastasWeb</a>
+            <div class="menu">
+                <div class="label" >Selecciona</div>
+                <div class="spacer"></div>
+                <div class="item"><a href="#soyyo"><span>Crear Cita</span></a></div>
+                <div class="item"><a href="#habili"><span>Consultar Cita</span></a></div>
+                <div class="item"><a href="consultaEspecialidades.aspx"><span>Consultar Especialista</span></a></div>
+                <div class="item"><a href="#contactobb" style="text-decoration: none;"><span>Consultar Enfermedades</span></a></div>
             </div>
-        </nav>
-
-        <div id="page-wrapper"  style="width:90%;margin-left:5%;margin-bottom:10%">
-
-            <div class="container-fluid">
-
-                <!-- Page Heading -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <h1 class="page-header" style="font-family:Poppins-SemiBold">>
-                            Divisas <small>Manejo de divisas del sistema</small>
-                        </h1>
-                        <ol class="breadcrumb">
-                            <li>
-                                <a class="fa fa-fw fa-dashboard" href="index.php" style="text-decoration: none; color:black"></a>
-                                <a class="breadcrumb" href="index.php" style="text-decoration: none; color:black">Inicio</a>
-                            </li>
-                            <li class="active">
-                                <i class="fa fa-money"></i> Divisas
-                            </li>
-                        </ol>
-                    </div>
-                </div>
-
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 <p style="height: 56px">
                     &nbsp;</p>

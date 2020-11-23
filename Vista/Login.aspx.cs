@@ -27,15 +27,15 @@ namespace Vista
                 Session["apellido"] = persona.apellido;
                 if (persona.id_rol == 1)
                 {
-                    Response.Redirect("agregarPersona.aspx",false);
+                    Response.Redirect("dashAdmin.aspx",false);
                 }
                 else if (persona.id_rol ==2)
                 {
-                    Response.Redirect("laOtra.aspx", false);
+                    Response.Redirect("dashEspecialista.aspx", false);
                 }
                 else if (persona.id_rol == 3)
                 {
-                    Response.Redirect("estarosa.aspx", false);
+                    Response.Redirect("dashPersona.aspx", false);
                 }
             }
             else

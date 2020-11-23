@@ -73,8 +73,11 @@
     <Content Include="bootstrap\bootstrap.css" />
     <Content Include="bootstrap\bootstrap.min.css" />
     <Content Include="consultaEspecialidades.aspx" />
+    <Content Include="css\conEsp.css" />
+    <Content Include="css\dashPersona.css" />
     <Content Include="css\login.css" />
     <Content Include="css\registro.css" />
+    <Content Include="dashPersona.aspx" />
     <Content Include="font\css\font-awesome.css" />
     <Content Include="font\css\font-awesome.min.css" />
     <Content Include="fuente\iconic\css\material-design-iconic-font.css" />
@@ -110,6 +113,13 @@
     </Compile>
     <Compile Include="consultaEspecialidades.aspx.designer.cs">
       <DependentUpon>consultaEspecialidades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dashPersona.aspx.cs">
+      <DependentUpon>dashPersona.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dashPersona.aspx.designer.cs">
+      <DependentUpon>dashPersona.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>

@@ -15,15 +15,6 @@ namespace Vista
     {
 
         /// <summary>
-        /// Control LblCiudad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblCiudad;
-
-        /// <summary>
         /// Control TextCiudad.
         /// </summary>
         /// <remarks>
@@ -31,15 +22,6 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextCiudad;
-
-        /// <summary>
-        /// Control LblEspecialidad.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label LblEspecialidad;
 
         /// <summary>
         /// Control TextEspecialidad.
