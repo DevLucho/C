@@ -43,6 +43,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClsCita.cs" />
+    <Compile Include="ClsCiudad.cs" />
     <Compile Include="ClsEnfermedad.cs" />
     <Compile Include="ClsEnteSalud.cs" />
     <Compile Include="ClsEspecialista.cs" />
