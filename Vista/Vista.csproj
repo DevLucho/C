@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="agregarEnteDeSalud.aspx" />
+    <Content Include="agregarEspecialista.aspx" />
     <Content Include="agregarPersona.aspx" />
     <Content Include="bootstrap\bootstrap-rtl.css" />
     <Content Include="bootstrap\bootstrap-rtl.min.css" />
@@ -79,6 +80,7 @@
     <Content Include="css\login.css" />
     <Content Include="css\registro.css" />
     <Content Include="dashAdmin.aspx" />
+    <Content Include="dashContenido.aspx" />
     <Content Include="dashPersona.aspx" />
     <Content Include="font\css\font-awesome.css" />
     <Content Include="font\css\font-awesome.min.css" />
@@ -109,6 +111,13 @@
     <Compile Include="agregarEnteDeSalud.aspx.designer.cs">
       <DependentUpon>agregarEnteDeSalud.aspx</DependentUpon>
     </Compile>
+    <Compile Include="agregarEspecialista.aspx.cs">
+      <DependentUpon>agregarEspecialista.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="agregarEspecialista.aspx.designer.cs">
+      <DependentUpon>agregarEspecialista.aspx</DependentUpon>
+    </Compile>
     <Compile Include="agregarPersona.aspx.cs">
       <DependentUpon>agregarPersona.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -129,6 +138,13 @@
     </Compile>
     <Compile Include="dashAdmin.aspx.designer.cs">
       <DependentUpon>dashAdmin.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="dashContenido.aspx.cs">
+      <DependentUpon>dashContenido.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="dashContenido.aspx.designer.cs">
+      <DependentUpon>dashContenido.aspx</DependentUpon>
     </Compile>
     <Compile Include="dashPersona.aspx.cs">
       <DependentUpon>dashPersona.aspx</DependentUpon>
@@ -159,6 +175,13 @@
     <Compile Include="Site2.Master.designer.cs">
       <DependentUpon>Site2.Master</DependentUpon>
     </Compile>
+    <Compile Include="Site3.Master.cs">
+      <DependentUpon>Site3.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Site3.Master.designer.cs">
+      <DependentUpon>Site3.Master</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <Content Include="fuente\iconic\fonts\Material-Design-Iconic-Font.eot" />
@@ -186,6 +209,7 @@
     <None Include="packages.config" />
     <Content Include="Site1.Master" />
     <Content Include="Site2.Master" />
+    <Content Include="Site3.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

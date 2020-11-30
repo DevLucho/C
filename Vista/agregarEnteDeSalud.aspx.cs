@@ -28,7 +28,7 @@ namespace Vista
             ente_salud ente_Salud = new ente_salud();
             ClsPersona clsPersona = new ClsPersona();
             persona persona = new persona();
-            ente_Salud.id_persona = 1;
+            ente_Salud.id_persona = int.Parse(Session["idPersona"].ToString());
             ente_Salud.nit = int.Parse(TextNit.Text);
             ente_Salud.razon_social = TextRazonS.Text;
             ente_Salud.representante = TextRepresentante.Text;

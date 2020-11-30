@@ -31,7 +31,7 @@ namespace Vista
                 }
                 else if (persona.id_rol ==2)
                 {
-                    Response.Redirect("dashEspecialista.aspx", false);
+                    Response.Redirect("dashContenido.aspx", false);
                 }
                 else if (persona.id_rol == 3)
                 {

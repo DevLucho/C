@@ -30,5 +30,16 @@ namespace Modelo
                    where e.especialidad == especialidad && e.ciudad == ciudad
                    select e;
         }
+
+        public int idPersonaEnte(int idPersona)
+        {
+            ORMDataContext BD = new ORMDataContext();
+            var consultaidEnte = (from e in BD.ente_salud
+                   where e.id_persona == idPersona
+                   select new { 
+                    idEnte = e.id_ente
+                   }).First();
+            return consultaidEnte.idEnte;
+        }
     }
 }

@@ -63,7 +63,7 @@
   color: #000000;
   border-radius: 0;
   -webkit-transition: border-color 0.25s ease, box-shadow 0.25s ease;
-  transition: border-color 0.25s ease, box-shadow 0.25s ease;" ID="DropDownList" runat="server"></asp:DropDownList>
+  transition: border-color 0.25s ease, box-shadow 0.25s ease;   " ID="DropDownList" runat="server"></asp:DropDownList>
               </div> 
 
             <div class="field-wrap">
