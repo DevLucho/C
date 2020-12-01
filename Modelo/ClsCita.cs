@@ -31,6 +31,13 @@ namespace Modelo
                    select c;
         }
 
+        public Object consularHora()
+        {
+            ORMDataContext BD = new ORMDataContext();
+            return from h in BD.hora_cita
+                   select h;
+        }
+
         public void CalificarCita(int calificacion, cita objCita)
         {
             ORMDataContext BD = new ORMDataContext();

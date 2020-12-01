@@ -75,6 +75,7 @@
     <Content Include="bootstrap\bootstrap.css" />
     <Content Include="bootstrap\bootstrap.min.css" />
     <Content Include="consultaEspecialidades.aspx" />
+    <Content Include="crearCita.aspx" />
     <Content Include="css\conEsp.css" />
     <Content Include="css\dashPersona.css" />
     <Content Include="css\login.css" />
@@ -87,6 +88,7 @@
     <Content Include="fuente\iconic\css\material-design-iconic-font.css" />
     <Content Include="fuente\iconic\css\material-design-iconic-font.min.css" />
     <Content Include="fuente\iconic\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="img\seleccionar.png" />
     <Content Include="js\bootstrap.js" />
     <Content Include="js\bootstrap.min.js" />
     <Content Include="js\jquery.js" />
@@ -102,6 +104,7 @@
     <Content Include="js\plugins\morris\raphael.min.js" />
     <Content Include="login.aspx" />
     <Content Include="Web.config" />
+    <Content Include="consultarCitas.aspx" />
   </ItemGroup>
   <ItemGroup>
     <Compile Include="agregarEnteDeSalud.aspx.cs">
@@ -131,6 +134,13 @@
     </Compile>
     <Compile Include="consultaEspecialidades.aspx.designer.cs">
       <DependentUpon>consultaEspecialidades.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="crearCita.aspx.cs">
+      <DependentUpon>crearCita.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="crearCita.aspx.designer.cs">
+      <DependentUpon>crearCita.aspx</DependentUpon>
     </Compile>
     <Compile Include="dashAdmin.aspx.cs">
       <DependentUpon>dashAdmin.aspx</DependentUpon>
@@ -181,6 +191,13 @@
     </Compile>
     <Compile Include="Site3.Master.designer.cs">
       <DependentUpon>Site3.Master</DependentUpon>
+    </Compile>
+    <Compile Include="consultarCitas.aspx.cs">
+      <DependentUpon>consultarCitas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="consultarCitas.aspx.designer.cs">
+      <DependentUpon>consultarCitas.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

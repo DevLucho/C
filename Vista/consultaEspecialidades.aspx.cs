@@ -20,5 +20,17 @@ namespace Vista
             gdgGrid.DataSource=clsEspecialista.ConsultarEspecialista(TextEspecialidad.Text,TextCiudad.Text);
             gdgGrid.DataBind();
         }
+
+        protected void gdgGrid_RowCommand(object sender, GridViewCommandEventArgs e)
+        {
+            GridViewRow filaSeleccionada = (GridViewRow)((Control)e.CommandSource).NamingContainer;
+            int rowIndex = filaSeleccionada.RowIndex;
+            if (e.CommandName == "Seleccionar")
+            {
+                Session["idEspecialista"] = gdgGrid.Rows[rowIndex].Cells[0].Text;
+                Session["nombreEspecialista"] = gdgGrid.Rows[rowIndex].Cells[1].Text;
+                Response.Redirect("crearCita.aspx",false);
+            }
+        }
     }
 }
