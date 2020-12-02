@@ -15,6 +15,13 @@ namespace Modelo
                    select e;
         }
 
+        public Object ConsultarTodosSintomas()
+        {
+            ORMDataContext BD = new ORMDataContext();
+            return from s in BD.sintoma
+                   select s;
+        }
+
         public Object ConsultarEnfermedad(string enfermedad, string sintoma)
         {
             ORMDataContext BD = new ORMDataContext();

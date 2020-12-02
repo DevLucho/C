@@ -16,10 +16,10 @@
             <div class="menu">
                 <div class="label" >Selecciona</div>
                 <div class="spacer"></div>
-                <div class="item"><a href="#soyyo"><span>Crear Cita</span></a></div>
-                <div class="item"><a href="#habili"><span>Consultar Cita</span></a></div>
+                <div class="item"><a href="crearCita.aspx"><span>Crear Cita</span></a></div>
+                <div class="item"><a href="consultarCitas.aspx"><span>Consultar Cita</span></a></div>
                 <div class="item"><a href="consultaEspecialidades.aspx"><span>Consultar Especialista</span></a></div>
-                <div class="item"><a href="#contactobb" style="text-decoration: none;"><span>Consultar Enfermedades</span></a></div>
+                <div class="item"><a href="enciclopedia.aspx" style="text-decoration: none;"><span>Consultar Enfermedades</span></a></div>
             </div>
             <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
                 <p style="height: 56px">

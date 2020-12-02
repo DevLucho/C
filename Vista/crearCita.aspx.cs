@@ -11,13 +11,17 @@ namespace Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblBienvenido.Text = "Especialista:  " + Session["nombreEspecialista"];
+            if (!IsPostBack)
+            {
+                lblBienvenido.Text = "Especialista:  " + Session["nombreEspecialista"];
 
-            ClsCita clsCita = new ClsCita();
-            DropDownList.DataSource = clsCita.consularHora();
-            DropDownList.DataValueField = "id_hora";
-            DropDownList.DataTextField = "hora";
-            DropDownList.DataBind();
+                ClsCita clsCita = new ClsCita();
+                DropDownList.DataSource = clsCita.consularHora();
+                DropDownList.DataValueField = "id_hora";
+                DropDownList.DataTextField = "hora";
+                DropDownList.DataBind();
+            }
+           
         }
 
         protected void btnRegistrarCita_Click(object sender, EventArgs e)

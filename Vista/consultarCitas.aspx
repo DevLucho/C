@@ -40,14 +40,14 @@
     </asp:Panel>
 
 
-    <asp:Panel ID="PanelGrid" runat="server">
+    <asp:Panel ID="PanelGrid" runat="server" style="margin-top:200px">
         <asp:GridView ID="gdgGrid" runat="server" AutoGenerateColumns="False" OnRowCommand="gdgGrid_RowCommand">
                   <Columns>
                       <asp:BoundField DataField="id_cita" HeaderText="Cita" />
                       <asp:BoundField DataField="fecha_cita" HeaderText="Fecha" />
                       <asp:BoundField DataField="id_hora" HeaderText="Hora" />
                       <asp:BoundField DataField="estado" HeaderText="Estado" />
-                      <asp:TemplateField HeaderText="Calificar"><ItemTemplate><asp:ImageButton ID="imgSelec" CommandName="Calificar" ImageUrl="~/img/seleccionar.png" Width="22px" runat="server"/></ItemTemplate></asp:TemplateField>
+                      <asp:TemplateField HeaderText="Calificar"><ItemTemplate><asp:ImageButton ID="imgSelec" CommandName="Calificar" ImageUrl="~/img/seleccionar.png" Height="22px" Width="22px" runat="server"/></ItemTemplate></asp:TemplateField>
                       
                   </Columns>
                </asp:GridView>

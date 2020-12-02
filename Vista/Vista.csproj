@@ -83,6 +83,7 @@
     <Content Include="dashAdmin.aspx" />
     <Content Include="dashContenido.aspx" />
     <Content Include="dashPersona.aspx" />
+    <Content Include="enciclopedia.aspx" />
     <Content Include="font\css\font-awesome.css" />
     <Content Include="font\css\font-awesome.min.css" />
     <Content Include="fuente\iconic\css\material-design-iconic-font.css" />
@@ -162,6 +163,13 @@
     </Compile>
     <Compile Include="dashPersona.aspx.designer.cs">
       <DependentUpon>dashPersona.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="enciclopedia.aspx.cs">
+      <DependentUpon>enciclopedia.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="enciclopedia.aspx.designer.cs">
+      <DependentUpon>enciclopedia.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
