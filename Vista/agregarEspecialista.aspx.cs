@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 using Modelo;
 namespace Vista
 {
-    public partial class agregarEspecialista : System.Web.UI.Page
+    public partial class agregarEspecialista1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {

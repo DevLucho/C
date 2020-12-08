@@ -4,6 +4,7 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+//using System.Windows.Forms;
 using Modelo;
 namespace Vista
 {
@@ -11,8 +12,9 @@ namespace Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
+            /*
             lblBienvenido.Text = "Bienvenido " + Session["nombre"] +" "+ Session["apellido"];
-
+            */
         }
 
         protected void btnRegistra_Click(object sender, EventArgs e)
@@ -27,8 +29,14 @@ namespace Vista
             persona.cedula = int.Parse(TextCedula.Text);
             persona.password = textPassword.Text;
             persona.id_rol = 3;
-            mensaje= clsPersona.Registrar(persona);
-            Page.RegisterStartupScript("script", "<script languaje=JavaScript>alert('"+mensaje+"')</script>");
+            mensaje = clsPersona.Registrar(persona);
+            // persona = new persona();
+
+            Response.Redirect(Request.Url.AbsoluteUri);
+        }
+
+        protected void textPassword_TextChanged(object sender, EventArgs e)
+        {
 
         }
     }

@@ -4,74 +4,97 @@
 
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head runat="server">
-<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
-    <title>Registro Persona</title>
-    <link rel="stylesheet" href="css/registro.css"/>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Registro persona</title>
+    <link rel="stylesheet" type="text/css" href="css/style.css" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap" rel="stylesheet" />
+    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
 </head>
 <body>
-    <div class="container-login">
+    <img class="wave" src="img/wave.png" />
+    <div class="container">
+        <div class="img">
+            <img src="img/undraw_in_sync_xwsa.svg" />
+        </div>
+        <div class="login-container">
+            <form runat="server" method="post">
+                <!--<img class="avatar" src="img/avatar_male.svg" />-->
+                <h2>
+                    <a href="login.aspx">
+                        <i class="far fa-arrow-alt-circle-left"></i>
+                    </a>
+                    Registro persona
+                </h2>
 
-  <div class="form">
-  
-    <ul class="tab-group">
-      <li class="tab active"><a href="#">Unete</a></li>
-    </ul>
-  
-    <div class="tab-content">
-      <div id="signup">
-        <h1>Crear Usuario</h1>
-        
-        <form runat="server" method="post">
-            <div class="field-wrap">
-              <asp:Label ID="Nombre" runat="server" for="nombre"></asp:Label>
-              <asp:TextBox placeholder="Nombres" type="text" runat="server" name="nombre" ID="TextNombre" required autocomplete="off"></asp:TextBox> 
-            </div>
-            <!--<asp:Label runat="server" ID="lblBienvenido"></asp:Label>-->
-           
-              <div class="field-wrap">
-              <asp:label ID="Apellido" runat="server" for="apellido"></asp:label>
-              <asp:TextBox placeholder="Apellido" name="paterno" runat="server" ID="TextApellido" type="text" required autocomplete="off"></asp:TextBox>
-            
-          </div> 
+                <div class="input-div one">
+                    <div class="i">
+                    </div>
+                    <div>
+                        <h5>Nombre</h5>
+                        <asp:TextBox runat="server" class="input" ID="TextNombre" name="nombre" type="text" required="true" autofocus=""></asp:TextBox>
+                    </div>
+                </div>
 
-           <div class="field-wrap">
-            <asp:label runat="server" for="celular"></asp:label>
-            <asp:TextBox runat="server" placeholder="celular" name="edad" ID="TextCelular" type="number" required autocomplete="off"></asp:TextBox>
-          </div>
+                <div class="input-div one">
+                    <div class="i">
+                    </div>
+                    <div>
+                        <h5>Apellido</h5>
+                        <asp:TextBox runat="server" class="input" ID="TextApellido" name="paterno" type="text" required="true" autofocus=""></asp:TextBox>
+                    </div>
+                </div>
 
-          <div class="field-wrap">
-            <label for="correo"></label>
-            <asp:TextBox placeholder="Correo" runat="server" name="correo" id="TextCorreo" type="email" required autocomplete="off"></asp:TextBox>
-          </div>
+                <div class="input-div two">
+                    <div class="i">
+                    </div>
+                    <div>
+                        <h5>Celular</h5>
+                        <asp:TextBox runat="server" class="input" name="edad" ID="TextCelular" type="number" required="true" autofocus=""></asp:TextBox>
+                    </div>
+                </div>
 
-  
-           <div class="top-row">
-              <div class="field-wrap">
-              <label for="user"></label>
-              <asp:TextBox placeholder="Cedula" runat="server" name="user" id="TextCedula" type="number" required autocomplete="off"></asp:TextBox>
-            </div> 
+                <div class="input-div two">
+                    <div class="i">
+                    </div>
+                    <div>
+                        <h5>Correo</h5>
+                        <asp:TextBox runat="server" class="input" name="correo" ID="TextCorreo" type="email" required="true" autofocus=""></asp:TextBox>
+                    </div>
+                </div>
+                <div class="input-div two">
+                    <div class="i">
+                    </div>
+                    <div>
+                        <h5>Cedula</h5>
+                        <asp:TextBox runat="server" class="input" name="user" ID="TextCedula" type="number" required="true" autofocus=""></asp:TextBox>
+                    </div>
+                </div>
+                <div class="input-div two">
+                    <div class="i">
+                    </div>
+                    <div>
+                        <h5>Contraseña</h5>
+                        <asp:TextBox runat="server" class="input" name="pass" ID="textPassword" type="password" required="true" autofocus="" OnTextChanged="textPassword_TextChanged"></asp:TextBox>
+                    </div>
+                </div>
+                <asp:Button runat="server" class="btn" name="registro" ID="btnRegistra" Text="Registrarme" OnClick="btnRegistra_Click" />
+            </form>
+        </div>
+    </div>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+    <script type="text/javascript">
+        function alertSuccess() {
+            Swal.fire({
+                icon: 'success',
+                title: 'Your work has been saved',
+                showConfirmButton: false,
+                timer: 1500
+            })
+        }
+    </script>
 
-            <div class="field-wrap">
-              <label for="pass"></label>
-              <asp:TextBox placeholder="Password" runat="server" name="pass" id="textPassword" type="password" required autocomplete="off" ></asp:TextBox>
-            </div> 
-          </div>
-           <asp:Button runat="server" class="button button-block" name="registro" ID="btnRegistra" text="Registrarme" OnClick="btnRegistra_Click"/> 
-        </form>
-        <br/>
-        <a class="pepe" href="login.aspx">Volver</a>
-  
-      </div>
-
-      <div id="login">
-  
-        
-  
-      </div>
-  
-    </div><!-- tab-content -->
-  
-  </div> <!-- /form --> 
-</div>  
 </body>
 </html>

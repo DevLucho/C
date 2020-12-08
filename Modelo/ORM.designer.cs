@@ -33,9 +33,6 @@ namespace Modelo
     partial void Insertcita(cita instance);
     partial void Updatecita(cita instance);
     partial void Deletecita(cita instance);
-    partial void Insertsintoma_enfermedad(sintoma_enfermedad instance);
-    partial void Updatesintoma_enfermedad(sintoma_enfermedad instance);
-    partial void Deletesintoma_enfermedad(sintoma_enfermedad instance);
     partial void Insertciudad(ciudad instance);
     partial void Updateciudad(ciudad instance);
     partial void Deleteciudad(ciudad instance);
@@ -66,10 +63,13 @@ namespace Modelo
     partial void Insertsintoma(sintoma instance);
     partial void Updatesintoma(sintoma instance);
     partial void Deletesintoma(sintoma instance);
+    partial void Insertsintoma_enfermedad(sintoma_enfermedad instance);
+    partial void Updatesintoma_enfermedad(sintoma_enfermedad instance);
+    partial void Deletesintoma_enfermedad(sintoma_enfermedad instance);
     #endregion
 		
 		public ORMDataContext() : 
-				base(global::Modelo.Properties.Settings.Default.rvsConnectionString1, mappingSource)
+				base(global::Modelo.Properties.Settings.Default.rvsConnectionString, mappingSource)
 		{
 			OnCreated();
 		}
@@ -98,35 +98,11 @@ namespace Modelo
 			OnCreated();
 		}
 		
-		public System.Data.Linq.Table<VistaEnfermedad> VistaEnfermedad
-		{
-			get
-			{
-				return this.GetTable<VistaEnfermedad>();
-			}
-		}
-		
-		public System.Data.Linq.Table<VistaEspecialista> VistaEspecialista
-		{
-			get
-			{
-				return this.GetTable<VistaEspecialista>();
-			}
-		}
-		
 		public System.Data.Linq.Table<cita> cita
 		{
 			get
 			{
 				return this.GetTable<cita>();
-			}
-		}
-		
-		public System.Data.Linq.Table<sintoma_enfermedad> sintoma_enfermedad
-		{
-			get
-			{
-				return this.GetTable<sintoma_enfermedad>();
 			}
 		}
 		
@@ -210,263 +186,35 @@ namespace Modelo
 			}
 		}
 		
+		public System.Data.Linq.Table<sintoma_enfermedad> sintoma_enfermedad
+		{
+			get
+			{
+				return this.GetTable<sintoma_enfermedad>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VistaEnfermedad> VistaEnfermedad
+		{
+			get
+			{
+				return this.GetTable<VistaEnfermedad>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VistaEspecialista> VistaEspecialista
+		{
+			get
+			{
+				return this.GetTable<VistaEspecialista>();
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sp_login")]
 		public ISingleResult<sp_loginResult> sp_login([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> cedula, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="VarChar(50)")] string contrasenia)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), cedula, contrasenia);
 			return ((ISingleResult<sp_loginResult>)(result.ReturnValue));
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VistaEnfermedad")]
-	public partial class VistaEnfermedad
-	{
-		
-		private string _nombre;
-		
-		private string _descripcion;
-		
-		private string _sintoma;
-		
-		private string _recomendacion;
-		
-		public VistaEnfermedad()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string nombre
-		{
-			get
-			{
-				return this._nombre;
-			}
-			set
-			{
-				if ((this._nombre != value))
-				{
-					this._nombre = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
-		public string descripcion
-		{
-			get
-			{
-				return this._descripcion;
-			}
-			set
-			{
-				if ((this._descripcion != value))
-				{
-					this._descripcion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintoma", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
-		public string sintoma
-		{
-			get
-			{
-				return this._sintoma;
-			}
-			set
-			{
-				if ((this._sintoma != value))
-				{
-					this._sintoma = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_recomendacion", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
-		public string recomendacion
-		{
-			get
-			{
-				return this._recomendacion;
-			}
-			set
-			{
-				if ((this._recomendacion != value))
-				{
-					this._recomendacion = value;
-				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VistaEspecialista")]
-	public partial class VistaEspecialista
-	{
-		
-		private string _nombre;
-		
-		private string _ciudad;
-		
-		private string _especialidad;
-		
-		private string _correo;
-		
-		private string _celular;
-		
-		private int _num_licencia;
-		
-		private System.DateTime _fech_expedicion_licen;
-		
-		private int _id_especialista;
-		
-		private string _razon_social;
-		
-		public VistaEspecialista()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string nombre
-		{
-			get
-			{
-				return this._nombre;
-			}
-			set
-			{
-				if ((this._nombre != value))
-				{
-					this._nombre = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciudad", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string ciudad
-		{
-			get
-			{
-				return this._ciudad;
-			}
-			set
-			{
-				if ((this._ciudad != value))
-				{
-					this._ciudad = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_especialidad", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string especialidad
-		{
-			get
-			{
-				return this._especialidad;
-			}
-			set
-			{
-				if ((this._especialidad != value))
-				{
-					this._especialidad = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_correo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string correo
-		{
-			get
-			{
-				return this._correo;
-			}
-			set
-			{
-				if ((this._correo != value))
-				{
-					this._correo = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_celular", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string celular
-		{
-			get
-			{
-				return this._celular;
-			}
-			set
-			{
-				if ((this._celular != value))
-				{
-					this._celular = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_num_licencia", DbType="Int NOT NULL")]
-		public int num_licencia
-		{
-			get
-			{
-				return this._num_licencia;
-			}
-			set
-			{
-				if ((this._num_licencia != value))
-				{
-					this._num_licencia = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fech_expedicion_licen", DbType="Date NOT NULL")]
-		public System.DateTime fech_expedicion_licen
-		{
-			get
-			{
-				return this._fech_expedicion_licen;
-			}
-			set
-			{
-				if ((this._fech_expedicion_licen != value))
-				{
-					this._fech_expedicion_licen = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_especialista", DbType="Int NOT NULL")]
-		public int id_especialista
-		{
-			get
-			{
-				return this._id_especialista;
-			}
-			set
-			{
-				if ((this._id_especialista != value))
-				{
-					this._id_especialista = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_razon_social", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string razon_social
-		{
-			get
-			{
-				return this._razon_social;
-			}
-			set
-			{
-				if ((this._razon_social != value))
-				{
-					this._razon_social = value;
-				}
-			}
 		}
 	}
 	
@@ -774,198 +522,6 @@ namespace Modelo
 						this._id_persona = default(int);
 					}
 					this.SendPropertyChanged("persona");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.sintoma_enfermedad")]
-	public partial class sintoma_enfermedad : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id_sintoma_enfermedad;
-		
-		private int _id_sintoma;
-		
-		private int _id_enfermedad;
-		
-		private EntityRef<enfermedad> _enfermedad;
-		
-		private EntityRef<sintoma> _sintoma;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_sintoma_enfermedadChanging(int value);
-    partial void Onid_sintoma_enfermedadChanged();
-    partial void Onid_sintomaChanging(int value);
-    partial void Onid_sintomaChanged();
-    partial void Onid_enfermedadChanging(int value);
-    partial void Onid_enfermedadChanged();
-    #endregion
-		
-		public sintoma_enfermedad()
-		{
-			this._enfermedad = default(EntityRef<enfermedad>);
-			this._sintoma = default(EntityRef<sintoma>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_sintoma_enfermedad", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id_sintoma_enfermedad
-		{
-			get
-			{
-				return this._id_sintoma_enfermedad;
-			}
-			set
-			{
-				if ((this._id_sintoma_enfermedad != value))
-				{
-					this.Onid_sintoma_enfermedadChanging(value);
-					this.SendPropertyChanging();
-					this._id_sintoma_enfermedad = value;
-					this.SendPropertyChanged("id_sintoma_enfermedad");
-					this.Onid_sintoma_enfermedadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_sintoma", DbType="Int NOT NULL")]
-		public int id_sintoma
-		{
-			get
-			{
-				return this._id_sintoma;
-			}
-			set
-			{
-				if ((this._id_sintoma != value))
-				{
-					if (this._sintoma.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_sintomaChanging(value);
-					this.SendPropertyChanging();
-					this._id_sintoma = value;
-					this.SendPropertyChanged("id_sintoma");
-					this.Onid_sintomaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_enfermedad", DbType="Int NOT NULL")]
-		public int id_enfermedad
-		{
-			get
-			{
-				return this._id_enfermedad;
-			}
-			set
-			{
-				if ((this._id_enfermedad != value))
-				{
-					if (this._enfermedad.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_enfermedadChanging(value);
-					this.SendPropertyChanging();
-					this._id_enfermedad = value;
-					this.SendPropertyChanged("id_enfermedad");
-					this.Onid_enfermedadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="enfermedad_sintoma_enfermedad", Storage="_enfermedad", ThisKey="id_enfermedad", OtherKey="id_enfermedad", IsForeignKey=true)]
-		public enfermedad enfermedad
-		{
-			get
-			{
-				return this._enfermedad.Entity;
-			}
-			set
-			{
-				enfermedad previousValue = this._enfermedad.Entity;
-				if (((previousValue != value) 
-							|| (this._enfermedad.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._enfermedad.Entity = null;
-						previousValue.sintoma_enfermedad.Remove(this);
-					}
-					this._enfermedad.Entity = value;
-					if ((value != null))
-					{
-						value.sintoma_enfermedad.Add(this);
-						this._id_enfermedad = value.id_enfermedad;
-					}
-					else
-					{
-						this._id_enfermedad = default(int);
-					}
-					this.SendPropertyChanged("enfermedad");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="sintoma_sintoma_enfermedad", Storage="_sintoma", ThisKey="id_sintoma", OtherKey="id_sintoma", IsForeignKey=true)]
-		public sintoma sintoma
-		{
-			get
-			{
-				return this._sintoma.Entity;
-			}
-			set
-			{
-				sintoma previousValue = this._sintoma.Entity;
-				if (((previousValue != value) 
-							|| (this._sintoma.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._sintoma.Entity = null;
-						previousValue.sintoma_enfermedad.Remove(this);
-					}
-					this._sintoma.Entity = value;
-					if ((value != null))
-					{
-						value.sintoma_enfermedad.Add(this);
-						this._id_sintoma = value.id_sintoma;
-					}
-					else
-					{
-						this._id_sintoma = default(int);
-					}
-					this.SendPropertyChanged("sintoma");
 				}
 			}
 		}
@@ -3047,6 +2603,450 @@ namespace Modelo
 		{
 			this.SendPropertyChanging();
 			entity.sintoma = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.sintoma_enfermedad")]
+	public partial class sintoma_enfermedad : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_sintoma_enfermedad;
+		
+		private int _id_sintoma;
+		
+		private int _id_enfermedad;
+		
+		private EntityRef<enfermedad> _enfermedad;
+		
+		private EntityRef<sintoma> _sintoma;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_sintoma_enfermedadChanging(int value);
+    partial void Onid_sintoma_enfermedadChanged();
+    partial void Onid_sintomaChanging(int value);
+    partial void Onid_sintomaChanged();
+    partial void Onid_enfermedadChanging(int value);
+    partial void Onid_enfermedadChanged();
+    #endregion
+		
+		public sintoma_enfermedad()
+		{
+			this._enfermedad = default(EntityRef<enfermedad>);
+			this._sintoma = default(EntityRef<sintoma>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_sintoma_enfermedad", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_sintoma_enfermedad
+		{
+			get
+			{
+				return this._id_sintoma_enfermedad;
+			}
+			set
+			{
+				if ((this._id_sintoma_enfermedad != value))
+				{
+					this.Onid_sintoma_enfermedadChanging(value);
+					this.SendPropertyChanging();
+					this._id_sintoma_enfermedad = value;
+					this.SendPropertyChanged("id_sintoma_enfermedad");
+					this.Onid_sintoma_enfermedadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_sintoma", DbType="Int NOT NULL")]
+		public int id_sintoma
+		{
+			get
+			{
+				return this._id_sintoma;
+			}
+			set
+			{
+				if ((this._id_sintoma != value))
+				{
+					if (this._sintoma.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_sintomaChanging(value);
+					this.SendPropertyChanging();
+					this._id_sintoma = value;
+					this.SendPropertyChanged("id_sintoma");
+					this.Onid_sintomaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_enfermedad", DbType="Int NOT NULL")]
+		public int id_enfermedad
+		{
+			get
+			{
+				return this._id_enfermedad;
+			}
+			set
+			{
+				if ((this._id_enfermedad != value))
+				{
+					if (this._enfermedad.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_enfermedadChanging(value);
+					this.SendPropertyChanging();
+					this._id_enfermedad = value;
+					this.SendPropertyChanged("id_enfermedad");
+					this.Onid_enfermedadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="enfermedad_sintoma_enfermedad", Storage="_enfermedad", ThisKey="id_enfermedad", OtherKey="id_enfermedad", IsForeignKey=true)]
+		public enfermedad enfermedad
+		{
+			get
+			{
+				return this._enfermedad.Entity;
+			}
+			set
+			{
+				enfermedad previousValue = this._enfermedad.Entity;
+				if (((previousValue != value) 
+							|| (this._enfermedad.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._enfermedad.Entity = null;
+						previousValue.sintoma_enfermedad.Remove(this);
+					}
+					this._enfermedad.Entity = value;
+					if ((value != null))
+					{
+						value.sintoma_enfermedad.Add(this);
+						this._id_enfermedad = value.id_enfermedad;
+					}
+					else
+					{
+						this._id_enfermedad = default(int);
+					}
+					this.SendPropertyChanged("enfermedad");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="sintoma_sintoma_enfermedad", Storage="_sintoma", ThisKey="id_sintoma", OtherKey="id_sintoma", IsForeignKey=true)]
+		public sintoma sintoma
+		{
+			get
+			{
+				return this._sintoma.Entity;
+			}
+			set
+			{
+				sintoma previousValue = this._sintoma.Entity;
+				if (((previousValue != value) 
+							|| (this._sintoma.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._sintoma.Entity = null;
+						previousValue.sintoma_enfermedad.Remove(this);
+					}
+					this._sintoma.Entity = value;
+					if ((value != null))
+					{
+						value.sintoma_enfermedad.Add(this);
+						this._id_sintoma = value.id_sintoma;
+					}
+					else
+					{
+						this._id_sintoma = default(int);
+					}
+					this.SendPropertyChanged("sintoma");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VistaEnfermedad")]
+	public partial class VistaEnfermedad
+	{
+		
+		private string _nombre;
+		
+		private string _descripcion;
+		
+		private string _sintoma;
+		
+		private string _recomendacion;
+		
+		public VistaEnfermedad()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this._descripcion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintoma", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string sintoma
+		{
+			get
+			{
+				return this._sintoma;
+			}
+			set
+			{
+				if ((this._sintoma != value))
+				{
+					this._sintoma = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_recomendacion", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string recomendacion
+		{
+			get
+			{
+				return this._recomendacion;
+			}
+			set
+			{
+				if ((this._recomendacion != value))
+				{
+					this._recomendacion = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VistaEspecialista")]
+	public partial class VistaEspecialista
+	{
+		
+		private string _nombre;
+		
+		private string _ciudad;
+		
+		private string _especialidad;
+		
+		private string _correo;
+		
+		private string _celular;
+		
+		private int _num_licencia;
+		
+		private System.DateTime _fech_expedicion_licen;
+		
+		private int _id_especialista;
+		
+		private string _razon_social;
+		
+		public VistaEspecialista()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this._nombre = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ciudad", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string ciudad
+		{
+			get
+			{
+				return this._ciudad;
+			}
+			set
+			{
+				if ((this._ciudad != value))
+				{
+					this._ciudad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_especialidad", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string especialidad
+		{
+			get
+			{
+				return this._especialidad;
+			}
+			set
+			{
+				if ((this._especialidad != value))
+				{
+					this._especialidad = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_correo", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string correo
+		{
+			get
+			{
+				return this._correo;
+			}
+			set
+			{
+				if ((this._correo != value))
+				{
+					this._correo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_celular", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string celular
+		{
+			get
+			{
+				return this._celular;
+			}
+			set
+			{
+				if ((this._celular != value))
+				{
+					this._celular = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_num_licencia", DbType="Int NOT NULL")]
+		public int num_licencia
+		{
+			get
+			{
+				return this._num_licencia;
+			}
+			set
+			{
+				if ((this._num_licencia != value))
+				{
+					this._num_licencia = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fech_expedicion_licen", DbType="Date NOT NULL")]
+		public System.DateTime fech_expedicion_licen
+		{
+			get
+			{
+				return this._fech_expedicion_licen;
+			}
+			set
+			{
+				if ((this._fech_expedicion_licen != value))
+				{
+					this._fech_expedicion_licen = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_especialista", DbType="Int NOT NULL")]
+		public int id_especialista
+		{
+			get
+			{
+				return this._id_especialista;
+			}
+			set
+			{
+				if ((this._id_especialista != value))
+				{
+					this._id_especialista = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_razon_social", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string razon_social
+		{
+			get
+			{
+				return this._razon_social;
+			}
+			set
+			{
+				if ((this._razon_social != value))
+				{
+					this._razon_social = value;
+				}
+			}
 		}
 	}
 	

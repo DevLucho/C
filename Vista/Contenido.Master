@@ -1,0 +1,240 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Contenido.Master.cs" Inherits="Vista.Site4" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <!-- font awesome -->
+    <script src="https://kit.fontawesome.com/7769f8ac48.js" crossorigin="anonymous"></script>
+    <link
+        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
+        rel="stylesheet">
+    <!-- css template -->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- css bootstrap -->
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body id="page-top">
+
+    <div id="wrapper">
+
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+
+            <!-- Sidebar - Brand -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="dashboard.aspx">
+                <div class="sidebar-brand-icon">
+                    <i class="fas fa-hospital-user"></i>
+                </div>
+                <div class="sidebar-brand-text mx-2">Red de salud</div>
+            </a>
+
+            <hr class="sidebar-divider">
+
+            <!-- Nav Items -->
+            <%
+                if (int.Parse(Session["idRol"].ToString()) == 1)
+                {
+            %>
+            <!-- Menu para admin -->
+            <li class="nav-item">
+                <a class="nav-link" href="agregarEnte.aspx">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Crear ente</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="consultarCitas.aspx">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Consultar cita</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="especialidades.aspx">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Consultar especialista</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="enciclopedia.aspx">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Consultar enfermedades</span></a>
+            </li>
+
+            <%
+                }
+            %>
+
+            <%
+                if (int.Parse(Session["idRol"].ToString()) == 2)
+                {
+            %>
+            <!-- Menu para contenido -->
+
+            <li class="nav-item">
+                <a class="nav-link" href="crearCita.aspx">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Crear cita</span></a>
+            </li>
+
+
+            <li class="nav-item">
+                <a class="nav-link" href="consultarCitas.aspx">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Consultar cita</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="agregarEspecialista.aspx">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Crear especialista</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="enciclopedia.aspx">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Consultar enfermedades</span></a>
+            </li>
+
+            <%
+                }
+            %>
+            <%
+                if (int.Parse(Session["idRol"].ToString()) == 3)
+                {
+            %>
+            <!-- Menu normal  -->
+            <li class="nav-item">
+                <a class="nav-link" href="crearCita.aspx">
+                    <i class="fas fa-fw fa-chart-area"></i>
+                    <span>Agendar cita</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="consultarCitas.aspx">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Consultar cita</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="especialidades.aspx">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Consultar especialista</span></a>
+            </li>
+
+            <li class="nav-item">
+                <a class="nav-link" href="enciclopedia.aspx">
+                    <i class="fas fa-fw fa-table"></i>
+                    <span>Consultar enfermedadades</span></a>
+            </li>
+
+            <%
+                }
+            %>
+
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar boton -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
+        <!-- End of Sidebar -->
+
+        <!-- Content Wrapper -->
+        <form role="form" method="post" runat="server">
+            <div id="content-wrapper" class="d-flex flex-column">
+
+                <!-- Main Content -->
+                <div id="content">
+
+                    <!-- Topbar -->
+                    <nav class="navbar navbar-expand navbar-light bg-white topbar mb-4 static-top shadow">
+
+                        <!-- Sidebar Toggle (Topbar) -->
+                        <div class="form-inline">
+                            <button id="sidebarToggleTop" class="btn btn-link d-md-none rounded-circle mr-3">
+                                <i class="fa fa-bars"></i>
+                            </button>
+                        </div>
+
+                        <!-- Topbar Navbar -->
+                        <ul class="navbar-nav ml-auto">
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">Tipo de rol: 
+                                        <b><% Response.Write(Session["rol"]);%></b>
+                                    </span>
+                                </a>
+                            </li>
+
+                            <div class="topbar-divider d-none d-sm-block"></div>
+
+                            <!-- Nav Item - User Information -->
+                            <li class="nav-item dropdown no-arrow">
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                    data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    <span class="mr-2 d-none d-lg-inline text-gray-600 small">
+                                        <% Response.Write(Session["nombre"]);%>&nbsp;<%Response.Write(Session["apellido"]);%>
+                                    </span>
+                                    <i class="fas fa-user" style="color: black"></i>
+                                </a>
+                                <!-- Dropdown - User Information -->
+                                <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
+                                    aria-labelledby="userDropdown">
+                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
+                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-black-400"></i>
+                                        <asp:Button ID="btnLogout" CssClass="btn m-0 p-0" type="submit" CommandName="salir" runat="server" Text="Cerrar sesión" OnClick="btnLogout_Click" />
+                                    </a>
+                                </div>
+                            </li>
+                        </ul>
+                    </nav>
+                    <!-- End of Topbar -->
+
+                    <!-- Contenido principal -->
+                    <div class="container-fluid">
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </div>
+
+                </div>
+                <!-- End of Main Content -->
+
+                <!-- Footer -->
+                <footer class="sticky-footer bg-white">
+                    <div class="container my-auto">
+                        <div class="copyright text-center my-auto">
+                            <span>Copyright &copy; Red de Salud Vallecaucana 2020</span>
+                        </div>
+                    </div>
+                </footer>
+
+            </div>
+        </form>
+        <!-- End of Content Wrapper -->
+    </div>
+
+    <!-- End of Page Wrapper -->
+
+    <!-- Scroll to Top Button-->
+    <a class="scroll-to-top rounded" href="#page-top">
+        <i class="fas fa-angle-up"></i>
+    </a>
+
+    <script src="vendor/jquery/jquery.min.js"></script>
+    <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
+    <script src="js/sb-admin-2.min.js"></script>
+    <!-- Datatables -->
+    <script src="vendor/datatables/jquery.dataTables.min.js"></script>
+    <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
+    <script src="js/demo/datatables-demo.js"></script>
+</body>
+</html>

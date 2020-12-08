@@ -11,7 +11,7 @@ namespace Vista
 {
 
 
-    public partial class enciclopedia
+    public partial class enciclopedia1
     {
 
         /// <summary>

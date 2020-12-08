@@ -49,6 +49,7 @@
     <Compile Include="ClsEspecialidad.cs" />
     <Compile Include="ClsEspecialista.cs" />
     <Compile Include="ClsPersona.cs" />
+    <Compile Include="ClsRol.cs" />
     <Compile Include="ORM.designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>

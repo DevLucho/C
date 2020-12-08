@@ -67,53 +67,52 @@
     </Reference>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="agregarEnteDeSalud.aspx" />
+    <Content Include="agregarEnte.aspx" />
     <Content Include="agregarEspecialista.aspx" />
     <Content Include="agregarPersona.aspx" />
-    <Content Include="bootstrap\bootstrap-rtl.css" />
-    <Content Include="bootstrap\bootstrap-rtl.min.css" />
-    <Content Include="bootstrap\bootstrap.css" />
     <Content Include="bootstrap\bootstrap.min.css" />
-    <Content Include="consultaEspecialidades.aspx" />
+    <Content Include="consultarCitas.aspx" />
     <Content Include="crearCita.aspx" />
     <Content Include="css\conEsp.css" />
     <Content Include="css\dashPersona.css" />
     <Content Include="css\login.css" />
     <Content Include="css\registro.css" />
-    <Content Include="dashAdmin.aspx" />
-    <Content Include="dashContenido.aspx" />
-    <Content Include="dashPersona.aspx" />
+    <Content Include="css\sb-admin-2.min.css" />
+    <Content Include="css\style.css" />
+    <Content Include="css\style1.css" />
+    <Content Include="dashboard.aspx" />
     <Content Include="enciclopedia.aspx" />
-    <Content Include="font\css\font-awesome.css" />
-    <Content Include="font\css\font-awesome.min.css" />
-    <Content Include="fuente\iconic\css\material-design-iconic-font.css" />
-    <Content Include="fuente\iconic\css\material-design-iconic-font.min.css" />
-    <Content Include="fuente\iconic\fonts\Material-Design-Iconic-Font.svg" />
+    <Content Include="especialidades.aspx" />
+    <Content Include="img\avatar_femine.svg" />
+    <Content Include="img\avatar_male.svg" />
+    <Content Include="img\phone.svg" />
     <Content Include="img\seleccionar.png" />
-    <Content Include="js\bootstrap.js" />
+    <Content Include="img\undraw_hacker_mindset_gjwq.svg" />
+    <Content Include="img\undraw_into_the_night_vumi.svg" />
+    <Content Include="img\undraw_in_sync_xwsa.svg" />
+    <Content Include="img\undraw_Waiting__for_you_ldha.svg" />
+    <Content Include="img\wave.png" />
     <Content Include="js\bootstrap.min.js" />
+    <Content Include="js\demo\datatables-demo.js" />
     <Content Include="js\jquery.js" />
-    <Content Include="js\plugins\flot\excanvas.min.js" />
-    <Content Include="js\plugins\flot\flot-data.js" />
-    <Content Include="js\plugins\flot\jquery.flot.js" />
-    <Content Include="js\plugins\flot\jquery.flot.pie.js" />
-    <Content Include="js\plugins\flot\jquery.flot.resize.js" />
-    <Content Include="js\plugins\flot\jquery.flot.tooltip.min.js" />
-    <Content Include="js\plugins\morris\morris-data.js" />
-    <Content Include="js\plugins\morris\morris.js" />
-    <Content Include="js\plugins\morris\morris.min.js" />
-    <Content Include="js\plugins\morris\raphael.min.js" />
+    <Content Include="js\main.js" />
+    <Content Include="js\sb-admin-2.min.js" />
     <Content Include="login.aspx" />
+    <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js" />
+    <Content Include="vendor\datatables\dataTables.bootstrap4.min.css" />
+    <Content Include="vendor\datatables\dataTables.bootstrap4.min.js" />
+    <Content Include="vendor\datatables\jquery.dataTables.min.js" />
+    <Content Include="vendor\jquery-easing\jquery.easing.min.js" />
+    <Content Include="vendor\jquery\jquery.min.js" />
     <Content Include="Web.config" />
-    <Content Include="consultarCitas.aspx" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="agregarEnteDeSalud.aspx.cs">
-      <DependentUpon>agregarEnteDeSalud.aspx</DependentUpon>
+    <Compile Include="agregarEnte.aspx.cs">
+      <DependentUpon>agregarEnte.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="agregarEnteDeSalud.aspx.designer.cs">
-      <DependentUpon>agregarEnteDeSalud.aspx</DependentUpon>
+    <Compile Include="agregarEnte.aspx.designer.cs">
+      <DependentUpon>agregarEnte.aspx</DependentUpon>
     </Compile>
     <Compile Include="agregarEspecialista.aspx.cs">
       <DependentUpon>agregarEspecialista.aspx</DependentUpon>
@@ -129,12 +128,12 @@
     <Compile Include="agregarPersona.aspx.designer.cs">
       <DependentUpon>agregarPersona.aspx</DependentUpon>
     </Compile>
-    <Compile Include="consultaEspecialidades.aspx.cs">
-      <DependentUpon>consultaEspecialidades.aspx</DependentUpon>
+    <Compile Include="consultarCitas.aspx.cs">
+      <DependentUpon>consultarCitas.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="consultaEspecialidades.aspx.designer.cs">
-      <DependentUpon>consultaEspecialidades.aspx</DependentUpon>
+    <Compile Include="consultarCitas.aspx.designer.cs">
+      <DependentUpon>consultarCitas.aspx</DependentUpon>
     </Compile>
     <Compile Include="crearCita.aspx.cs">
       <DependentUpon>crearCita.aspx</DependentUpon>
@@ -143,26 +142,12 @@
     <Compile Include="crearCita.aspx.designer.cs">
       <DependentUpon>crearCita.aspx</DependentUpon>
     </Compile>
-    <Compile Include="dashAdmin.aspx.cs">
-      <DependentUpon>dashAdmin.aspx</DependentUpon>
+    <Compile Include="dashboard.aspx.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="dashAdmin.aspx.designer.cs">
-      <DependentUpon>dashAdmin.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="dashContenido.aspx.cs">
-      <DependentUpon>dashContenido.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="dashContenido.aspx.designer.cs">
-      <DependentUpon>dashContenido.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="dashPersona.aspx.cs">
-      <DependentUpon>dashPersona.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="dashPersona.aspx.designer.cs">
-      <DependentUpon>dashPersona.aspx</DependentUpon>
+    <Compile Include="dashboard.aspx.designer.cs">
+      <DependentUpon>dashboard.aspx</DependentUpon>
     </Compile>
     <Compile Include="enciclopedia.aspx.cs">
       <DependentUpon>enciclopedia.aspx</DependentUpon>
@@ -170,6 +155,13 @@
     </Compile>
     <Compile Include="enciclopedia.aspx.designer.cs">
       <DependentUpon>enciclopedia.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="especialidades.aspx.cs">
+      <DependentUpon>especialidades.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="especialidades.aspx.designer.cs">
+      <DependentUpon>especialidades.aspx</DependentUpon>
     </Compile>
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
@@ -179,62 +171,18 @@
       <DependentUpon>login.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Site1.Master.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
+    <Compile Include="Contenido.Master.cs">
+      <DependentUpon>Contenido.Master</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Site1.Master.designer.cs">
-      <DependentUpon>Site1.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Site2.Master.cs">
-      <DependentUpon>Site2.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site2.Master.designer.cs">
-      <DependentUpon>Site2.Master</DependentUpon>
-    </Compile>
-    <Compile Include="Site3.Master.cs">
-      <DependentUpon>Site3.Master</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Site3.Master.designer.cs">
-      <DependentUpon>Site3.Master</DependentUpon>
-    </Compile>
-    <Compile Include="consultarCitas.aspx.cs">
-      <DependentUpon>consultarCitas.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="consultarCitas.aspx.designer.cs">
-      <DependentUpon>consultarCitas.aspx</DependentUpon>
+    <Compile Include="Contenido.Master.designer.cs">
+      <DependentUpon>Contenido.Master</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>
-    <Content Include="fuente\iconic\fonts\Material-Design-Iconic-Font.eot" />
-    <Content Include="fuente\iconic\fonts\Material-Design-Iconic-Font.ttf" />
-    <Content Include="fuente\iconic\fonts\Material-Design-Iconic-Font.woff" />
-    <Content Include="fuente\iconic\fonts\Material-Design-Iconic-Font.woff2" />
-    <Content Include="fuente\poppins\Poppins-Black.ttf" />
-    <Content Include="fuente\poppins\Poppins-BlackItalic.ttf" />
-    <Content Include="fuente\poppins\Poppins-Bold.ttf" />
-    <Content Include="fuente\poppins\Poppins-BoldItalic.ttf" />
-    <Content Include="fuente\poppins\Poppins-ExtraBold.ttf" />
-    <Content Include="fuente\poppins\Poppins-ExtraBoldItalic.ttf" />
-    <Content Include="fuente\poppins\Poppins-ExtraLight.ttf" />
-    <Content Include="fuente\poppins\Poppins-ExtraLightItalic.ttf" />
-    <Content Include="fuente\poppins\Poppins-Italic.ttf" />
-    <Content Include="fuente\poppins\Poppins-Light.ttf" />
-    <Content Include="fuente\poppins\Poppins-LightItalic.ttf" />
-    <Content Include="fuente\poppins\Poppins-Medium.ttf" />
-    <Content Include="fuente\poppins\Poppins-MediumItalic.ttf" />
-    <Content Include="fuente\poppins\Poppins-Regular.ttf" />
-    <Content Include="fuente\poppins\Poppins-SemiBold.ttf" />
-    <Content Include="fuente\poppins\Poppins-SemiBoldItalic.ttf" />
-    <Content Include="fuente\poppins\Poppins-Thin.ttf" />
-    <Content Include="fuente\poppins\Poppins-ThinItalic.ttf" />
+    <Content Include="img\wave.psd" />
     <None Include="packages.config" />
-    <Content Include="Site1.Master" />
-    <Content Include="Site2.Master" />
-    <Content Include="Site3.Master" />
+    <Content Include="Contenido.Master" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

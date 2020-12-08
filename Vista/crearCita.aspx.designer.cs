@@ -11,7 +11,7 @@ namespace Vista
 {
 
 
-    public partial class crearCita
+    public partial class crearCita1
     {
 
         /// <summary>

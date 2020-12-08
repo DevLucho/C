@@ -5,9 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Modelo;
+
 namespace Vista
 {
-    public partial class WebForm1 : System.Web.UI.Page
+    public partial class consultarCitas1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -18,7 +19,7 @@ namespace Vista
                 gdgGrid.DataBind();
                 mostraPanel(2);
             }
-            
+
         }
 
         protected void btnCalificar_Click(object sender, EventArgs e)
@@ -27,7 +28,7 @@ namespace Vista
             cita cita = new cita();
             cita.id_cita = int.Parse(TextIDcita.Text);
             cita.calificacion = int.Parse(TextCalificacion.Text);
-            clsCita.CalificarCita(cita.calificacion.Value,cita);
+            clsCita.CalificarCita(cita.calificacion.Value, cita);
             mostraPanel(2);
         }
         public void mostraPanel(int panel)
@@ -45,7 +46,7 @@ namespace Vista
                 TextFecha.Text = gdgGrid.Rows[rowIndex].Cells[1].Text;
                 TextHora.Text = gdgGrid.Rows[rowIndex].Cells[2].Text;
                 mostraPanel(1);
-            } 
+            }
         }
     }
 }

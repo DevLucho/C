@@ -11,7 +11,7 @@ namespace Vista
 {
 
 
-    public partial class agregarEspecialista
+    public partial class agregarEspecialista1
     {
 
         /// <summary>

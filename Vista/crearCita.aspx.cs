@@ -5,9 +5,10 @@ using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
 using Modelo;
+
 namespace Vista
 {
-    public partial class crearCita : System.Web.UI.Page
+    public partial class crearCita1 : System.Web.UI.Page
     {
         protected void Page_Load(object sender, EventArgs e)
         {
@@ -21,7 +22,7 @@ namespace Vista
                 DropDownList.DataTextField = "hora";
                 DropDownList.DataBind();
             }
-           
+
         }
 
         protected void btnRegistrarCita_Click(object sender, EventArgs e)
@@ -38,6 +39,5 @@ namespace Vista
             Page.RegisterStartupScript("script", "<script languaje=JavaScript>alert('" + mensaje + "');location.href='dashPersona.aspx';</script>");
 
         }
-
     }
 }

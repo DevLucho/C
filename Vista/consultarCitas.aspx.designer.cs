@@ -11,7 +11,7 @@ namespace Vista
 {
 
 
-    public partial class WebForm1
+    public partial class consultarCitas1
     {
 
         /// <summary>

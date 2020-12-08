@@ -17,7 +17,8 @@ namespace Vista
 
         protected void btnLogin_Click(object sender, EventArgs e)
         {
-			ClsPersona clsPersona = new ClsPersona();
+            ClsPersona clsPersona = new ClsPersona();
+            ClsRol clsRol = new ClsRol();
 			persona persona = new persona();
 			persona = clsPersona.Login(int.Parse(TextCedula.Text), TextPassword.Text);
             if (persona.cedula  != 0)
@@ -25,6 +26,9 @@ namespace Vista
                 Session["idPersona"] = persona.id_persona;
                 Session["nombre"] = persona.nombre;
                 Session["apellido"] = persona.apellido;
+                Session["idRol"] = persona.id_rol;
+                Session["rol"] = clsRol.Rol(persona.id_rol);
+                /*
                 if (persona.id_rol == 1)
                 {
                     Response.Redirect("dashAdmin.aspx",false);
@@ -36,12 +40,19 @@ namespace Vista
                 else if (persona.id_rol == 3)
                 {
                     Response.Redirect("dashPersona.aspx", false);
-                }
+                }*/
+                Server.Transfer("dashboard.aspx");
             }
             else
             {
                 Page.RegisterStartupScript("script","<script languaje=JavaScript>alert('Datos Incorrectos')</script>");
             }
+        }
+
+        protected void Button2_Click(object sender, EventArgs e)
+        {
+            Button2.CausesValidation = false;
+            Server.Transfer("agregarPersona.aspx");
         }
     }
 }
