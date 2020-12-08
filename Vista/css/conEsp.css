@@ -1,0 +1,23 @@
+﻿.contenedor {
+    width: auto;
+}
+
+.ciudadad {
+    height: 60px;
+    text-align: center;
+}
+
+.especialistaa {
+    height: 60px;
+    text-align: center;
+}
+
+.btnR {
+    height: 60px;
+    width: 50%;
+    margin-left: 25%;
+}
+
+.form{  
+    max-width:850px;
+}

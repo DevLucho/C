@@ -43,8 +43,10 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="ClsCita.cs" />
+    <Compile Include="ClsCiudad.cs" />
     <Compile Include="ClsEnfermedad.cs" />
     <Compile Include="ClsEnteSalud.cs" />
+    <Compile Include="ClsEspecialidad.cs" />
     <Compile Include="ClsEspecialista.cs" />
     <Compile Include="ClsPersona.cs" />
     <Compile Include="ORM.designer.cs">

@@ -33,5 +33,16 @@ namespace Modelo.Properties {
                 return ((string)(this["rvsConnectionString"]));
             }
         }
+        
+        [global::System.Configuration.ApplicationScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.SpecialSettingAttribute(global::System.Configuration.SpecialSetting.ConnectionString)]
+        [global::System.Configuration.DefaultSettingValueAttribute("Data Source=DESKTOP-2B8C9Q9\\SQLEXPRESS;Initial Catalog=rvs;Integrated Security=Tr" +
+            "ue")]
+        public string rvsConnectionString1 {
+            get {
+                return ((string)(this["rvsConnectionString1"]));
+            }
+        }
     }
 }

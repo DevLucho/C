@@ -1,8 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="rvs" Class="ORMDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=LAPTOP-C01R8KNQ\SQLEXPRESS;Initial Catalog=rvs;Integrated Security=True" SettingsObjectName="Modelo.Properties.Settings" SettingsPropertyName="rvsConnectionString" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=DESKTOP-2B8C9Q9\SQLEXPRESS;Initial Catalog=rvs;Integrated Security=True" SettingsObjectName="Modelo.Properties.Settings" SettingsPropertyName="rvsConnectionString1" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.VistaEnfermedad" Member="VistaEnfermedad">
+    <Type Name="VistaEnfermedad">
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="sintoma" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Column Name="recomendacion" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VistaEspecialista" Member="VistaEspecialista">
+    <Type Name="VistaEspecialista">
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="ciudad" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="especialidad" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="correo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="celular" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="num_licencia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fech_expedicion_licen" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="id_especialista" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="razon_social" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.cita" Member="cita">
     <Type Name="cita">
-      <Column Name="id_cita" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_cita" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="id_persona" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="id_especialista" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="fecha_cita" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
@@ -12,6 +33,15 @@
       <Association Name="especialista_cita" Member="especialista" ThisKey="id_especialista" OtherKey="id_especialista" Type="especialista" IsForeignKey="true" />
       <Association Name="hora_cita_cita" Member="hora_cita" ThisKey="id_hora" OtherKey="id_hora" Type="hora_cita" IsForeignKey="true" />
       <Association Name="persona_cita" Member="persona" ThisKey="id_persona" OtherKey="id_persona" Type="persona" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sintoma_enfermedad" Member="sintoma_enfermedad">
+    <Type Name="sintoma_enfermedad">
+      <Column Name="id_sintoma_enfermedad" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_sintoma" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_enfermedad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="enfermedad_sintoma_enfermedad" Member="enfermedad" ThisKey="id_enfermedad" OtherKey="id_enfermedad" Type="enfermedad" IsForeignKey="true" />
+      <Association Name="sintoma_sintoma_enfermedad" Member="sintoma" ThisKey="id_sintoma" OtherKey="id_sintoma" Type="sintoma" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.ciudad" Member="ciudad">
@@ -115,34 +145,6 @@
       <Column Name="id_sintoma" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="sintoma" Member="sintoma1" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
       <Association Name="sintoma_sintoma_enfermedad" Member="sintoma_enfermedad" ThisKey="id_sintoma" OtherKey="id_sintoma" Type="sintoma_enfermedad" />
-    </Type>
-  </Table>
-  <Table Name="dbo.sintoma_enfermedad" Member="sintoma_enfermedad">
-    <Type Name="sintoma_enfermedad">
-      <Column Name="id_sintoma_enfermedad" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="id_sintoma" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="id_enfermedad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="enfermedad_sintoma_enfermedad" Member="enfermedad" ThisKey="id_enfermedad" OtherKey="id_enfermedad" Type="enfermedad" IsForeignKey="true" />
-      <Association Name="sintoma_sintoma_enfermedad" Member="sintoma" ThisKey="id_sintoma" OtherKey="id_sintoma" Type="sintoma" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.VistaEnfermedad" Member="VistaEnfermedad">
-    <Type Name="VistaEnfermedad">
-      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="descripcion" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="sintoma" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="recomendacion" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-    </Type>
-  </Table>
-  <Table Name="dbo.VistaEspecialista" Member="VistaEspecialista">
-    <Type Name="VistaEspecialista">
-      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="ciudad" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="especialidad" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="num_licencia" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="fech_expedicion_licen" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
-      <Column Name="correo" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="celular" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.sp_login" Method="sp_login">

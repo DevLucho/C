@@ -1,0 +1,29 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site3.master.cs" Inherits="Vista.Site3" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8"/>
+    <title>Index Contenido</title>
+    <link  rel="stylesheet" href="css/dashPersona.css"/>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <div class="menu">
+                <div class="label" >Selecciona</div>
+                <div class="spacer"></div>
+                <div class="item"><a href="#soyyo"><span>Crear Cita</span></a></div>
+                <div class="item"><a href="#habili"><span>Consultar Cita</span></a></div>
+                <div class="item"><a href="agregarEspecialista.aspx"><span>Crear Especialista</span></a></div>
+                <div class="item"><a href="#contactobb" style="text-decoration: none;"><span>Consultar Enfermedades</span></a></div>
+            </div>
+            <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+        </div>
+    </form>
+</body>
+</html>

@@ -23,12 +23,24 @@ namespace Modelo
             }
         }
 
-        public Object ConsultarCita(string estado)
+        public Object ConsultarCita(int idPersona,string estado)
         {
             ORMDataContext BD = new ORMDataContext();
             return from c in BD.cita
-                   where c.estado == estado
-                   select c;
+                   where c.estado == estado && c.id_persona == idPersona
+                   select new { 
+                        id_cita = c.id_cita,
+                        fecha_cita = c.fecha_cita,
+                        id_hora = c.hora_cita.hora,
+                        estado = c.estado
+                   };
+        }
+
+        public Object consularHora()
+        {
+            ORMDataContext BD = new ORMDataContext();
+            return from h in BD.hora_cita
+                   select h;
         }
 
         public void CalificarCita(int calificacion, cita objCita)
