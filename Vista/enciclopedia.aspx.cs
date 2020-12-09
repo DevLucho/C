@@ -24,6 +24,7 @@ namespace Vista
                 DropDownSintoma.DataValueField = "id_sintoma";
                 DropDownSintoma.DataTextField = "sintoma1";
                 DropDownSintoma.DataBind();
+
             }
         }
 
@@ -33,6 +34,7 @@ namespace Vista
             enfermedad enfermedad = new enfermedad();
             gdgGrid.DataSource = clsEnfermedad.ConsultarEnfermedad(DropDownEnfermedad.SelectedItem.Text, DropDownSintoma.SelectedItem.Text);
             gdgGrid.DataBind();
+            gdgGrid.HeaderRow.TableSection = TableRowSection.TableHeader; // Agrega etiqueta: <thead> a la tabla
         }
     }
 }

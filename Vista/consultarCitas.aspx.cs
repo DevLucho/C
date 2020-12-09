@@ -15,8 +15,9 @@ namespace Vista
             if (!IsPostBack)
             {
                 ClsCita clsCita = new ClsCita();
-                gdgGrid.DataSource = clsCita.ConsultarCita(int.Parse(Session["idPersona"].ToString()), "Registrado");
+                gdgGrid.DataSource = clsCita.ConsultarCita(int.Parse(Session["idPersona"].ToString()), "Reservada");
                 gdgGrid.DataBind();
+                gdgGrid.HeaderRow.TableSection = TableRowSection.TableHeader; // Agrega etiqueta: <thead> a la tabla
                 mostraPanel(2);
             }
 
@@ -30,6 +31,7 @@ namespace Vista
             cita.calificacion = int.Parse(TextCalificacion.Text);
             clsCita.CalificarCita(cita.calificacion.Value, cita);
             mostraPanel(2);
+            Response.Redirect(Request.Url.AbsoluteUri);
         }
         public void mostraPanel(int panel)
         {

@@ -1,49 +1,70 @@
 ﻿<%@ Page Title="" Language="C#" MasterPageFile="~/Contenido.Master" AutoEventWireup="true" CodeBehind="enciclopedia.aspx.cs" Inherits="Vista.enciclopedia1" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="head" runat="server">
+    <!-- Bootstrap 4 -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
+    <!-- Estilos datatables -->
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" />
+    <!-- select 2 -->
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/css/select2.min.css" rel="stylesheet" />
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <link rel="stylesheet" href="css/registro.css" />
-    <link rel="stylesheet" href="css/dashPersona.css" />
-
+    <h4 style="margin: 10px 15px 0px 0px"><i class="fas fa-viruses mr-2"></i>Consultar enfermedades</h4>
+    <hr>
     <asp:Panel ID="PanelForm" runat="server">
-        <div class="container-login" style="margin-top: 129px">
-            <div class="form">
-                <h1 style="margin: 10px 15px 0px 0px">Consultar Enfermedad</h1>
-                <div class="tab-content" style="margin-top: 100px;">
-                    <div id="signup">
-                        <asp:Label runat="server" ID="lblBienvenido"></asp:Label>
-
-                        <div class="field-wrap">
-                            <label for="Enfermedad"></label>
-                            <asp:DropDownList class="lista" Style="font-size: 22px; display: block; width: 100%; height: 100%; padding: 5px 10px; background: none; background-image: none; border: 1px solid #a0b3b0; color: #000000; border-radius: 0; -webkit-transition: border-color 0.25s ease, box-shadow 0.25s ease; transition: border-color 0.25s ease, box-shadow 0.25s ease;"
-                                ID="DropDownEnfermedad" runat="server">
-                            </asp:DropDownList>
-                        </div>
-                        <div class="field-wrap">
-                            <label for="Sintoma"></label>
-                            <asp:DropDownList class="lista" Style="font-size: 22px; display: block; width: 100%; height: 100%; padding: 5px 10px; background: none; background-image: none; border: 1px solid #a0b3b0; color: #000000; border-radius: 0; -webkit-transition: border-color 0.25s ease, box-shadow 0.25s ease; transition: border-color 0.25s ease, box-shadow 0.25s ease;"
-                                ID="DropDownSintoma" runat="server">
-                            </asp:DropDownList>
-                        </div>
-
-
-
-                        <asp:Button runat="server" class="button button-block" name="sintoma" ID="btnConsultarSintoma" Text="Consultar" OnClick="btnConsultarSintoma_Click" /><br />
+            <center>
+        <div class="row">
+                <div class="col-3">
+                    <div class="field-wrap">
+                        <label for="Enfermedad">Enfermedad</label>
+                        <asp:DropDownList class="js-example-basic-single form-control" ID="DropDownEnfermedad" runat="server">
+                        </asp:DropDownList>
                     </div>
-                    <div id="login"></div>
                 </div>
-                <!-- tab-content -->
-            </div>
-            <!-- /form -->
+                <div class="col-3">
+                    <div class="field-wrap">
+                        <label for="Sintoma">Sintoma</label>
+                        <asp:DropDownList class="js-example-basic-single form-control" ID="DropDownSintoma" runat="server">
+                        </asp:DropDownList>
+                    </div>
+                </div>
+                <div class="col">
+                    <asp:Button runat="server" class="btn btn-primary" name="sintoma" ID="btnConsultarSintoma" Text="Consultar" OnClick="btnConsultarSintoma_Click" />
+                </div>
         </div>
+            </center>
 
-
-        <asp:GridView ID="gdgGrid" runat="server" AutoGenerateColumns="False">
+        <asp:GridView Width="100%" CellSpacing="0" class="table table-bordered table-hover tabla" ID="gdgGrid" runat="server" AutoGenerateColumns="False">
             <Columns>
                 <asp:BoundField DataField="nombre" HeaderText="Nombre" />
                 <asp:BoundField DataField="recomendacion" HeaderText="Recomendacion" />
             </Columns>
         </asp:GridView>
     </asp:Panel>
+</asp:Content>
+
+<asp:Content ID="Content3" ContentPlaceHolderID="footer" runat="server">
+    <!-- DataTables -->
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/dataTables.bootstrap4.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            // Cambiar idioma a español
+            $('.tabla').DataTable({
+                "language": {
+                    "url": "https://cdn.datatables.net/plug-ins/1.10.20/i18n/Spanish.json"
+                }
+            });
+        });
+    </script>
+    <!-- select2 js -->
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-beta.1/dist/js/select2.min.js"></script>
+    <script>
+        $(document).ready(function () {
+            $('.js-example-basic-single').select2({
+                placeholder: "Filtra",
+                language: "es"
+            });
+        });
+    </script>
 </asp:Content>

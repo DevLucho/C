@@ -20,5 +20,10 @@ namespace Vista
             Response.Cookies.Add(new HttpCookie("ASP.NET_SessionId", ""));
             Response.Redirect("/login.aspx");
         }
+
+        public void off()
+        {
+            Response.Redirect("/login.aspx");
+        }
     }
 }

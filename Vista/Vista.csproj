@@ -75,6 +75,7 @@
     <Content Include="crearCita.aspx" />
     <Content Include="css\conEsp.css" />
     <Content Include="css\dashPersona.css" />
+    <Content Include="css\dataTables.bootstrap4.min.css" />
     <Content Include="css\login.css" />
     <Content Include="css\registro.css" />
     <Content Include="css\sb-admin-2.min.css" />
@@ -85,6 +86,7 @@
     <Content Include="especialidades.aspx" />
     <Content Include="img\avatar_femine.svg" />
     <Content Include="img\avatar_male.svg" />
+    <Content Include="img\calendar.png" />
     <Content Include="img\phone.svg" />
     <Content Include="img\seleccionar.png" />
     <Content Include="img\undraw_hacker_mindset_gjwq.svg" />
@@ -93,9 +95,16 @@
     <Content Include="img\undraw_Waiting__for_you_ldha.svg" />
     <Content Include="img\wave.png" />
     <Content Include="js\bootstrap.min.js" />
-    <Content Include="js\demo\datatables-demo.js" />
+    <Content Include="js\dataTables\buttons.html5.min.js" />
+    <Content Include="js\dataTables\dataTables.buttons.min.js" />
+    <Content Include="js\dataTables\datatables.min.js" />
+    <Content Include="js\dataTables\exportar_tablas.js" />
+    <Content Include="js\dataTables\jszip.min.js" />
+    <Content Include="js\dataTables\pdfmake.min.js" />
+    <Content Include="js\dataTables\vfs_fonts.js" />
     <Content Include="js\jquery.js" />
     <Content Include="js\main.js" />
+    <Content Include="js\popper.min.js" />
     <Content Include="js\sb-admin-2.min.js" />
     <Content Include="login.aspx" />
     <Content Include="vendor\bootstrap\js\bootstrap.bundle.min.js" />

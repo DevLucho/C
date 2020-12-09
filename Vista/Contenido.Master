@@ -12,8 +12,17 @@
         rel="stylesheet">
     <!-- css template -->
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
-    <!-- css bootstrap -->
-    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">
+    <!-- css bootstrap 
+    <link href="vendor/datatables/dataTables.bootstrap4.min.css" rel="stylesheet">-->
+    <style>
+        * {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+    </style>
+    <%
+        if (Session["idRol"] == null)
+            off();
+    %>
     <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
@@ -108,27 +117,22 @@
                 {
             %>
             <!-- Menu normal  -->
-            <li class="nav-item">
-                <a class="nav-link" href="crearCita.aspx">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Agendar cita</span></a>
-            </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="consultarCitas.aspx">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="far fa-calendar-alt"></i>
                     <span>Consultar cita</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="especialidades.aspx">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-user-md"></i>
                     <span>Consultar especialista</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="enciclopedia.aspx">
-                    <i class="fas fa-fw fa-table"></i>
+                    <i class="fas fa-viruses"></i>
                     <span>Consultar enfermedadades</span></a>
             </li>
 
@@ -147,8 +151,8 @@
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
-        <form role="form" method="post" runat="server">
-            <div id="content-wrapper" class="d-flex flex-column">
+        <div id="content-wrapper" class="d-flex flex-column">
+            <form role="form" method="post" runat="server">
 
                 <!-- Main Content -->
                 <div id="content">
@@ -178,7 +182,7 @@
 
                             <!-- Nav Item - User Information -->
                             <li class="nav-item dropdown no-arrow">
-                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
+                                <a class="nav-link dropdown-toggle" href="#" id="userDropdown2" role="button"
                                     data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     <span class="mr-2 d-none d-lg-inline text-gray-600 small">
                                         <% Response.Write(Session["nombre"]);%>&nbsp;<%Response.Write(Session["apellido"]);%>
@@ -188,10 +192,9 @@
                                 <!-- Dropdown - User Information -->
                                 <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
                                     aria-labelledby="userDropdown">
-                                    <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
-                                        <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-black-400"></i>
-                                        <asp:Button ID="btnLogout" CssClass="btn m-0 p-0" type="submit" CommandName="salir" runat="server" Text="Cerrar sesión" OnClick="btnLogout_Click" />
-                                    </a>
+                                    <center>
+                                        <a class="btn m-0 p-0" href="login.aspx"><i class="fas fa-sign-out-alt fa-sm fa-fw text-black-400 mr-2"></i>Cerrar sesión</a>
+                                    </center>
                                 </div>
                             </li>
                         </ul>
@@ -216,8 +219,8 @@
                     </div>
                 </footer>
 
-            </div>
-        </form>
+            </form>
+        </div>
         <!-- End of Content Wrapper -->
     </div>
 
@@ -227,14 +230,20 @@
     <a class="scroll-to-top rounded" href="#page-top">
         <i class="fas fa-angle-up"></i>
     </a>
-
+    <script src="https://code.jquery.com/jquery-3.5.1.js"></script>
+    <script src="js/popper.min.js"></script>
+    <script src="js/bootstrap.min.js"></script>
+    <asp:ContentPlaceHolder ID="footer" runat="server">
+    </asp:ContentPlaceHolder>
+    <script src="js/sb-admin-2.min.js"></script>
+    <!--
     <script src="vendor/jquery/jquery.min.js"></script>
     <script src="vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
     <script src="vendor/jquery-easing/jquery.easing.min.js"></script>
-    <script src="js/sb-admin-2.min.js"></script>
-    <!-- Datatables -->
+        -->
+    <!-- Datatables 
     <script src="vendor/datatables/jquery.dataTables.min.js"></script>
     <script src="vendor/datatables/dataTables.bootstrap4.min.js"></script>
-    <script src="js/demo/datatables-demo.js"></script>
+    <script src="js/demo/datatables-demo.js"></script>-->
 </body>
 </html>

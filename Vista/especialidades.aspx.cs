@@ -11,14 +11,13 @@ namespace Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-
-        }
-
-        protected void btnBuscar_Click(object sender, EventArgs e)
-        {
-            ClsEspecialista clsEspecialista = new ClsEspecialista();
-            gdgGrid.DataSource = clsEspecialista.ConsultarEspecialista(TextEspecialidad.Text, TextCiudad.Text);
-            gdgGrid.DataBind();
+            if (!IsPostBack)
+            {
+                ClsEspecialista clsEspecialista = new ClsEspecialista();
+                gdgGrid.DataSource = clsEspecialista.consultarEspecialistas();
+                gdgGrid.DataBind();
+                gdgGrid.HeaderRow.TableSection = TableRowSection.TableHeader; // Agrega etiqueta: <thead> a la tabla
+            }
         }
 
         protected void gdgGrid_RowCommand(object sender, GridViewCommandEventArgs e)
@@ -29,7 +28,7 @@ namespace Vista
             {
                 Session["idEspecialista"] = gdgGrid.Rows[rowIndex].Cells[0].Text;
                 Session["nombreEspecialista"] = gdgGrid.Rows[rowIndex].Cells[1].Text;
-                Response.Redirect("crearCita.aspx", false);
+                Server.Transfer("crearCita.aspx");
             }
         }
     }
