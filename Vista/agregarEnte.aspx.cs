@@ -12,14 +12,11 @@ namespace Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblBienvenido.Text = "Bienvenido " + Session["nombre"] + " " + Session["apellido"];
-
             ClsCiudad ciudadDAO = new ClsCiudad();
             DropDownList.DataSource = ciudadDAO.consularTodo();
             DropDownList.DataValueField = "id_Ciudad";
             DropDownList.DataTextField = "ciudad1";
             DropDownList.DataBind();
-
         }
 
         protected void btnRegistrarEnte_Click(object sender, EventArgs e)
@@ -29,7 +26,7 @@ namespace Vista
             ente_salud ente_Salud = new ente_salud();
             ClsPersona clsPersona = new ClsPersona();
             persona persona = new persona();
-            ente_Salud.id_persona = int.Parse(Session["idPersona"].ToString());
+            //ente_Salud.id_persona = int.Parse(Session["idPersona"].ToString());
             ente_Salud.nit = int.Parse(TextNit.Text);
             ente_Salud.razon_social = TextRazonS.Text;
             ente_Salud.representante = TextRepresentante.Text;
@@ -39,7 +36,7 @@ namespace Vista
             ente_Salud.id_ciudad = int.Parse(DropDownList.SelectedValue.ToString());
             ente_Salud.capacidad_pacientes = int.Parse(TextCapacidad.Text);
             mensaje = clsEnte.Registrar(ente_Salud);
-            Page.RegisterStartupScript("script", "<script languaje=JavaScript>alert('" + mensaje + "');location.href='dashAdmin.aspx';</script>");
+            Page.RegisterStartupScript("script", "<script languaje=JavaScript>alert('" + mensaje + "');location.href='dashboard.aspx';</script>");
 
         }
     }

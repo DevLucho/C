@@ -11,7 +11,6 @@ namespace Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblBienvenido.Text = "Bienvenido " + Session["nombre"] + " " + Session["apellido"];
             ClsCiudad ciudadDAO = new ClsCiudad();
             drpCiudad.DataSource = ciudadDAO.consularTodo();
             drpCiudad.DataValueField = "id_Ciudad";

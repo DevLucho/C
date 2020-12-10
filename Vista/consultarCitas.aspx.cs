@@ -15,7 +15,14 @@ namespace Vista
             if (!IsPostBack)
             {
                 ClsCita clsCita = new ClsCita();
-                gdgGrid.DataSource = clsCita.ConsultarCita(int.Parse(Session["idPersona"].ToString()), "Reservada");
+                if (int.Parse(Session["idRol"].ToString()) == 3)
+                {
+                    gdgGrid.DataSource = clsCita.ConsultarCita(int.Parse(Session["idPersona"].ToString()), "Reservada");
+                }
+                else
+                {
+                    gdgGrid.DataSource = clsCita.AllConsulCita();
+                }
                 gdgGrid.DataBind();
                 gdgGrid.HeaderRow.TableSection = TableRowSection.TableHeader; // Agrega etiqueta: <thead> a la tabla
                 mostraPanel(2);
@@ -49,6 +56,23 @@ namespace Vista
                 TextHora.Text = gdgGrid.Rows[rowIndex].Cells[2].Text;
                 mostraPanel(1);
             }
+        }
+
+        protected void gdgGrid_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (int.Parse(Session["idRol"].ToString()) != 3)
+            {
+                if (e.Row.RowType == DataControlRowType.Header)
+                    e.Row.Cells[7].Visible = false;
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                    e.Row.Cells[7].Visible = false;
+            }
+        }
+
+
+        protected void gdgGrid_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

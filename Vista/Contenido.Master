@@ -23,7 +23,6 @@
         if (Session["idRol"] == null)
             off();
     %>
-    <title></title>
     <asp:ContentPlaceHolder ID="head" runat="server">
     </asp:ContentPlaceHolder>
 </head>
@@ -43,7 +42,11 @@
             </a>
 
             <hr class="sidebar-divider">
-
+            <li class="nav-item">
+                <a class="nav-link" href="dashboard.aspx">
+                    <i class="fas fa-home"></i>
+                    <span>Inicio</span></a>
+            </li>
             <!-- Nav Items -->
             <%
                 if (int.Parse(Session["idRol"].ToString()) == 1)
@@ -52,25 +55,31 @@
             <!-- Menu para admin -->
             <li class="nav-item">
                 <a class="nav-link" href="agregarEnte.aspx">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="far fa-hospital"></i>
                     <span>Crear ente</span></a>
             </li>
 
             <li class="nav-item">
+                <a class="nav-link" href="agregarEspecialista.aspx">
+                    <i class="fas fa-user-plus"></i>
+                    <span>Crear especialista</span></a>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link" href="consultarCitas.aspx">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Consultar cita</span></a>
+                    <i class="far fa-calendar-alt"></i>
+                    <span>Consultar citas</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="especialidades.aspx">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-user-md"></i>
                     <span>Consultar especialista</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="enciclopedia.aspx">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-viruses"></i>
                     <span>Consultar enfermedades</span></a>
             </li>
 
@@ -85,27 +94,20 @@
             <!-- Menu para contenido -->
 
             <li class="nav-item">
-                <a class="nav-link" href="crearCita.aspx">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Crear cita</span></a>
-            </li>
-
-
-            <li class="nav-item">
                 <a class="nav-link" href="consultarCitas.aspx">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="far fa-calendar-alt"></i>
                     <span>Consultar cita</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="agregarEspecialista.aspx">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-user-plus"></i>
                     <span>Crear especialista</span></a>
             </li>
 
             <li class="nav-item">
                 <a class="nav-link" href="enciclopedia.aspx">
-                    <i class="fas fa-fw fa-chart-area"></i>
+                    <i class="fas fa-viruses"></i>
                     <span>Consultar enfermedades</span></a>
             </li>
 
@@ -133,7 +135,7 @@
             <li class="nav-item">
                 <a class="nav-link" href="enciclopedia.aspx">
                     <i class="fas fa-viruses"></i>
-                    <span>Consultar enfermedadades</span></a>
+                    <span>Consultar enfermedades</span></a>
             </li>
 
             <%

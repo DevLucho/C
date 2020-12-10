@@ -5,13 +5,13 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous" />
     <!-- Estilos datatables -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/dataTables.bootstrap4.min.css" />
-
+    <title>Consultar citas</title>
 </asp:Content>
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <h4 style="margin: 10px 15px 0px 0px"><i class="far fa-star mr-2"></i>Calificar atención</h4>
+    <h4 style="margin: 10px 15px 0px 0px"><i class="far fa-calendar-alt mr-2"></i>Consultar citas</h4>
     <hr>
     <asp:Panel ID="PanelGrid" runat="server">
-        <asp:GridView Width="100%" CellSpacing="0" class="table table-bordered table-hover tabla" ID="gdgGrid" runat="server" AutoGenerateColumns="False" OnRowCommand="gdgGrid_RowCommand">
+        <asp:GridView Width="100%" CellSpacing="0" class="table table-bordered table-hover tabla" ID="gdgGrid" runat="server" AutoGenerateColumns="False" OnRowCommand="gdgGrid_RowCommand" OnRowDataBound="gdgGrid_RowDataBound" OnSelectedIndexChanged="gdgGrid_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField DataField="id_cita" HeaderText="Id cita" />
                 <asp:BoundField DataField="fecha_cita" HeaderText="Fecha" />
@@ -20,6 +20,7 @@
                 <asp:BoundField DataField="especialidad" HeaderText="Especialidad" />
                 <asp:BoundField DataField="calificacion" HeaderText="Calificación" />
                 <asp:BoundField DataField="estado" HeaderText="Estado" />
+
                 <asp:TemplateField HeaderText="Calificar">
                     <ItemTemplate>
                         <asp:ImageButton ID="imgSelec" CommandName="Calificar" ImageUrl="~/img/seleccionar.png" Height="22px" Width="22px" runat="server" />

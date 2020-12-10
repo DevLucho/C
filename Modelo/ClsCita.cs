@@ -40,6 +40,22 @@ namespace Modelo
                    };
         }
 
+        public Object AllConsulCita()
+        {
+            ORMDataContext BD = new ORMDataContext();
+            return from c in BD.cita
+                   select new
+                   {
+                       id_cita = c.id_cita,
+                       fecha_cita = c.fecha_cita.ToShortDateString(),
+                       id_hora = c.hora_cita.hora,
+                       especialista = c.especialista.nombre,
+                       especialidad = c.especialista.especialidad.especialidad1,
+                       calificacion = c.calificacion,
+                       estado = c.estado
+                   };
+        }
+
 
         public List<cita> citaReservada(DateTime fecha)
         {
@@ -79,6 +95,12 @@ namespace Modelo
             citaCalificada.calificacion = calificacion;
             citaCalificada.estado = "Atendido";
             BD.SubmitChanges();
+        }
+
+        static public int CountCita()
+        {
+            ORMDataContext BD = new ORMDataContext();
+            return (from e in BD.cita where e.estado.Equals("Atendido") select e).Count();
         }
     }
 }

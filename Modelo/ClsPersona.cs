@@ -42,5 +42,25 @@ namespace Modelo
 
             return objPersona;
         }
+        
+        public Object PersonaContenido()
+        {
+            ORMDataContext BD = new ORMDataContext();
+            return (from e in BD.persona
+                    where e.id_rol == 2
+                    select new
+                    {
+                        id_persona = e.id_persona,
+                        datos = e.cedula + " - " + e.nombre + " " + e.apellido
+                    }).ToList();
+        }
+        /*
+        public List<persona> PersonaContenido()
+        {
+            ORMDataContext BD = new ORMDataContext();
+            return (from e in BD.persona
+                    where e.id_rol == 2
+                    select e).ToList();
+        }*/
     }
 }

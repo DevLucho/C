@@ -68,5 +68,10 @@ namespace Modelo
                                   }).First();
             return consultaidEnte.idEnte;
         }
+
+        static public int CountEspecialistas() {
+            ORMDataContext BD = new ORMDataContext();
+            return (from e in BD.especialista select e).Count();
+        }
     }
 }

@@ -11,43 +11,43 @@ namespace Vista
 {
 
 
-    public partial class dashboard
+    public partial class Login
     {
 
         /// <summary>
-        /// Control lblEspe.
+        /// Control TextCedula.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEspe;
+        protected global::System.Web.UI.WebControls.TextBox TextCedula;
 
         /// <summary>
-        /// Control lblEnte.
+        /// Control TextPassword.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblEnte;
+        protected global::System.Web.UI.WebControls.TextBox TextPassword;
 
         /// <summary>
-        /// Control lblCita.
+        /// Control btnLogin.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Label lblCita;
+        protected global::System.Web.UI.WebControls.Button btnLogin;
 
         /// <summary>
-        /// Control gdgGrid.
+        /// Control Button2.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdgGrid;
+        protected global::System.Web.UI.WebControls.Button Button2;
     }
 }
