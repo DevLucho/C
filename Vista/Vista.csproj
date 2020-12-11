@@ -90,6 +90,8 @@
     <Content Include="img\avatar_femine.svg" />
     <Content Include="img\avatar_male.svg" />
     <Content Include="img\calendar.png" />
+    <Content Include="img\hospital.png" />
+    <Content Include="img\hospital.svg" />
     <Content Include="img\phone.svg" />
     <Content Include="img\seleccionar.png" />
     <Content Include="img\undraw_hacker_mindset_gjwq.svg" />

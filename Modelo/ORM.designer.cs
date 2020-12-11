@@ -36,9 +36,6 @@ namespace Modelo
     partial void Insertciudad(ciudad instance);
     partial void Updateciudad(ciudad instance);
     partial void Deleteciudad(ciudad instance);
-    partial void Insertenfermedad(enfermedad instance);
-    partial void Updateenfermedad(enfermedad instance);
-    partial void Deleteenfermedad(enfermedad instance);
     partial void Insertente_salud(ente_salud instance);
     partial void Updateente_salud(ente_salud instance);
     partial void Deleteente_salud(ente_salud instance);
@@ -54,18 +51,21 @@ namespace Modelo
     partial void Insertpersona(persona instance);
     partial void Updatepersona(persona instance);
     partial void Deletepersona(persona instance);
-    partial void Insertrecomendacion(recomendacion instance);
-    partial void Updaterecomendacion(recomendacion instance);
-    partial void Deleterecomendacion(recomendacion instance);
     partial void Insertrol(rol instance);
     partial void Updaterol(rol instance);
     partial void Deleterol(rol instance);
-    partial void Insertsintoma(sintoma instance);
-    partial void Updatesintoma(sintoma instance);
-    partial void Deletesintoma(sintoma instance);
+    partial void Insertrecomendacion(recomendacion instance);
+    partial void Updaterecomendacion(recomendacion instance);
+    partial void Deleterecomendacion(recomendacion instance);
     partial void Insertsintoma_enfermedad(sintoma_enfermedad instance);
     partial void Updatesintoma_enfermedad(sintoma_enfermedad instance);
     partial void Deletesintoma_enfermedad(sintoma_enfermedad instance);
+    partial void Insertsintoma(sintoma instance);
+    partial void Updatesintoma(sintoma instance);
+    partial void Deletesintoma(sintoma instance);
+    partial void Insertenfermedad(enfermedad instance);
+    partial void Updateenfermedad(enfermedad instance);
+    partial void Deleteenfermedad(enfermedad instance);
     #endregion
 		
 		public ORMDataContext() : 
@@ -114,14 +114,6 @@ namespace Modelo
 			}
 		}
 		
-		public System.Data.Linq.Table<enfermedad> enfermedad
-		{
-			get
-			{
-				return this.GetTable<enfermedad>();
-			}
-		}
-		
 		public System.Data.Linq.Table<ente_salud> ente_salud
 		{
 			get
@@ -162,14 +154,6 @@ namespace Modelo
 			}
 		}
 		
-		public System.Data.Linq.Table<recomendacion> recomendacion
-		{
-			get
-			{
-				return this.GetTable<recomendacion>();
-			}
-		}
-		
 		public System.Data.Linq.Table<rol> rol
 		{
 			get
@@ -178,11 +162,19 @@ namespace Modelo
 			}
 		}
 		
-		public System.Data.Linq.Table<sintoma> sintoma
+		public System.Data.Linq.Table<VistaEspecialista> VistaEspecialista
 		{
 			get
 			{
-				return this.GetTable<sintoma>();
+				return this.GetTable<VistaEspecialista>();
+			}
+		}
+		
+		public System.Data.Linq.Table<recomendacion> recomendacion
+		{
+			get
+			{
+				return this.GetTable<recomendacion>();
 			}
 		}
 		
@@ -194,19 +186,19 @@ namespace Modelo
 			}
 		}
 		
-		public System.Data.Linq.Table<VistaEnfermedad> VistaEnfermedad
+		public System.Data.Linq.Table<sintoma> sintoma
 		{
 			get
 			{
-				return this.GetTable<VistaEnfermedad>();
+				return this.GetTable<sintoma>();
 			}
 		}
 		
-		public System.Data.Linq.Table<VistaEspecialista> VistaEspecialista
+		public System.Data.Linq.Table<enfermedad> enfermedad
 		{
 			get
 			{
-				return this.GetTable<VistaEspecialista>();
+				return this.GetTable<enfermedad>();
 			}
 		}
 		
@@ -686,233 +678,6 @@ namespace Modelo
 		{
 			this.SendPropertyChanging();
 			entity.ciudad = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.enfermedad")]
-	public partial class enfermedad : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id_enfermedad;
-		
-		private string _nombre;
-		
-		private string _descripcion;
-		
-		private int _id_sintoma;
-		
-		private int _id_recomendacion;
-		
-		private EntitySet<sintoma_enfermedad> _sintoma_enfermedad;
-		
-		private EntityRef<recomendacion> _recomendacion;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_enfermedadChanging(int value);
-    partial void Onid_enfermedadChanged();
-    partial void OnnombreChanging(string value);
-    partial void OnnombreChanged();
-    partial void OndescripcionChanging(string value);
-    partial void OndescripcionChanged();
-    partial void Onid_sintomaChanging(int value);
-    partial void Onid_sintomaChanged();
-    partial void Onid_recomendacionChanging(int value);
-    partial void Onid_recomendacionChanged();
-    #endregion
-		
-		public enfermedad()
-		{
-			this._sintoma_enfermedad = new EntitySet<sintoma_enfermedad>(new Action<sintoma_enfermedad>(this.attach_sintoma_enfermedad), new Action<sintoma_enfermedad>(this.detach_sintoma_enfermedad));
-			this._recomendacion = default(EntityRef<recomendacion>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_enfermedad", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id_enfermedad
-		{
-			get
-			{
-				return this._id_enfermedad;
-			}
-			set
-			{
-				if ((this._id_enfermedad != value))
-				{
-					this.Onid_enfermedadChanging(value);
-					this.SendPropertyChanging();
-					this._id_enfermedad = value;
-					this.SendPropertyChanged("id_enfermedad");
-					this.Onid_enfermedadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string nombre
-		{
-			get
-			{
-				return this._nombre;
-			}
-			set
-			{
-				if ((this._nombre != value))
-				{
-					this.OnnombreChanging(value);
-					this.SendPropertyChanging();
-					this._nombre = value;
-					this.SendPropertyChanged("nombre");
-					this.OnnombreChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
-		public string descripcion
-		{
-			get
-			{
-				return this._descripcion;
-			}
-			set
-			{
-				if ((this._descripcion != value))
-				{
-					this.OndescripcionChanging(value);
-					this.SendPropertyChanging();
-					this._descripcion = value;
-					this.SendPropertyChanged("descripcion");
-					this.OndescripcionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_sintoma", DbType="Int NOT NULL")]
-		public int id_sintoma
-		{
-			get
-			{
-				return this._id_sintoma;
-			}
-			set
-			{
-				if ((this._id_sintoma != value))
-				{
-					this.Onid_sintomaChanging(value);
-					this.SendPropertyChanging();
-					this._id_sintoma = value;
-					this.SendPropertyChanged("id_sintoma");
-					this.Onid_sintomaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_recomendacion", DbType="Int NOT NULL")]
-		public int id_recomendacion
-		{
-			get
-			{
-				return this._id_recomendacion;
-			}
-			set
-			{
-				if ((this._id_recomendacion != value))
-				{
-					if (this._recomendacion.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_recomendacionChanging(value);
-					this.SendPropertyChanging();
-					this._id_recomendacion = value;
-					this.SendPropertyChanged("id_recomendacion");
-					this.Onid_recomendacionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="enfermedad_sintoma_enfermedad", Storage="_sintoma_enfermedad", ThisKey="id_enfermedad", OtherKey="id_enfermedad")]
-		public EntitySet<sintoma_enfermedad> sintoma_enfermedad
-		{
-			get
-			{
-				return this._sintoma_enfermedad;
-			}
-			set
-			{
-				this._sintoma_enfermedad.Assign(value);
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="recomendacion_enfermedad", Storage="_recomendacion", ThisKey="id_recomendacion", OtherKey="id_recomendacion", IsForeignKey=true)]
-		public recomendacion recomendacion
-		{
-			get
-			{
-				return this._recomendacion.Entity;
-			}
-			set
-			{
-				recomendacion previousValue = this._recomendacion.Entity;
-				if (((previousValue != value) 
-							|| (this._recomendacion.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._recomendacion.Entity = null;
-						previousValue.enfermedad.Remove(this);
-					}
-					this._recomendacion.Entity = value;
-					if ((value != null))
-					{
-						value.enfermedad.Add(this);
-						this._id_recomendacion = value.id_recomendacion;
-					}
-					else
-					{
-						this._id_recomendacion = default(int);
-					}
-					this.SendPropertyChanged("recomendacion");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_sintoma_enfermedad(sintoma_enfermedad entity)
-		{
-			this.SendPropertyChanging();
-			entity.enfermedad = this;
-		}
-		
-		private void detach_sintoma_enfermedad(sintoma_enfermedad entity)
-		{
-			this.SendPropertyChanging();
-			entity.enfermedad = null;
 		}
 	}
 	
@@ -2264,120 +2029,6 @@ namespace Modelo
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.recomendacion")]
-	public partial class recomendacion : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id_recomendacion;
-		
-		private string _recomendacion1;
-		
-		private EntitySet<enfermedad> _enfermedad;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_recomendacionChanging(int value);
-    partial void Onid_recomendacionChanged();
-    partial void Onrecomendacion1Changing(string value);
-    partial void Onrecomendacion1Changed();
-    #endregion
-		
-		public recomendacion()
-		{
-			this._enfermedad = new EntitySet<enfermedad>(new Action<enfermedad>(this.attach_enfermedad), new Action<enfermedad>(this.detach_enfermedad));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_recomendacion", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id_recomendacion
-		{
-			get
-			{
-				return this._id_recomendacion;
-			}
-			set
-			{
-				if ((this._id_recomendacion != value))
-				{
-					this.Onid_recomendacionChanging(value);
-					this.SendPropertyChanging();
-					this._id_recomendacion = value;
-					this.SendPropertyChanged("id_recomendacion");
-					this.Onid_recomendacionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="recomendacion", Storage="_recomendacion1", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
-		public string recomendacion1
-		{
-			get
-			{
-				return this._recomendacion1;
-			}
-			set
-			{
-				if ((this._recomendacion1 != value))
-				{
-					this.Onrecomendacion1Changing(value);
-					this.SendPropertyChanging();
-					this._recomendacion1 = value;
-					this.SendPropertyChanged("recomendacion1");
-					this.Onrecomendacion1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="recomendacion_enfermedad", Storage="_enfermedad", ThisKey="id_recomendacion", OtherKey="id_recomendacion")]
-		public EntitySet<enfermedad> enfermedad
-		{
-			get
-			{
-				return this._enfermedad;
-			}
-			set
-			{
-				this._enfermedad.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_enfermedad(enfermedad entity)
-		{
-			this.SendPropertyChanging();
-			entity.recomendacion = this;
-		}
-		
-		private void detach_enfermedad(enfermedad entity)
-		{
-			this.SendPropertyChanging();
-			entity.recomendacion = null;
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.rol")]
 	public partial class rol : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -2489,393 +2140,6 @@ namespace Modelo
 		{
 			this.SendPropertyChanging();
 			entity.rol = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.sintoma")]
-	public partial class sintoma : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id_sintoma;
-		
-		private string _sintoma1;
-		
-		private EntitySet<sintoma_enfermedad> _sintoma_enfermedad;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_sintomaChanging(int value);
-    partial void Onid_sintomaChanged();
-    partial void Onsintoma1Changing(string value);
-    partial void Onsintoma1Changed();
-    #endregion
-		
-		public sintoma()
-		{
-			this._sintoma_enfermedad = new EntitySet<sintoma_enfermedad>(new Action<sintoma_enfermedad>(this.attach_sintoma_enfermedad), new Action<sintoma_enfermedad>(this.detach_sintoma_enfermedad));
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_sintoma", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id_sintoma
-		{
-			get
-			{
-				return this._id_sintoma;
-			}
-			set
-			{
-				if ((this._id_sintoma != value))
-				{
-					this.Onid_sintomaChanging(value);
-					this.SendPropertyChanging();
-					this._id_sintoma = value;
-					this.SendPropertyChanged("id_sintoma");
-					this.Onid_sintomaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="sintoma", Storage="_sintoma1", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
-		public string sintoma1
-		{
-			get
-			{
-				return this._sintoma1;
-			}
-			set
-			{
-				if ((this._sintoma1 != value))
-				{
-					this.Onsintoma1Changing(value);
-					this.SendPropertyChanging();
-					this._sintoma1 = value;
-					this.SendPropertyChanged("sintoma1");
-					this.Onsintoma1Changed();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="sintoma_sintoma_enfermedad", Storage="_sintoma_enfermedad", ThisKey="id_sintoma", OtherKey="id_sintoma")]
-		public EntitySet<sintoma_enfermedad> sintoma_enfermedad
-		{
-			get
-			{
-				return this._sintoma_enfermedad;
-			}
-			set
-			{
-				this._sintoma_enfermedad.Assign(value);
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-		
-		private void attach_sintoma_enfermedad(sintoma_enfermedad entity)
-		{
-			this.SendPropertyChanging();
-			entity.sintoma = this;
-		}
-		
-		private void detach_sintoma_enfermedad(sintoma_enfermedad entity)
-		{
-			this.SendPropertyChanging();
-			entity.sintoma = null;
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.sintoma_enfermedad")]
-	public partial class sintoma_enfermedad : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id_sintoma_enfermedad;
-		
-		private int _id_sintoma;
-		
-		private int _id_enfermedad;
-		
-		private EntityRef<enfermedad> _enfermedad;
-		
-		private EntityRef<sintoma> _sintoma;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_sintoma_enfermedadChanging(int value);
-    partial void Onid_sintoma_enfermedadChanged();
-    partial void Onid_sintomaChanging(int value);
-    partial void Onid_sintomaChanged();
-    partial void Onid_enfermedadChanging(int value);
-    partial void Onid_enfermedadChanged();
-    #endregion
-		
-		public sintoma_enfermedad()
-		{
-			this._enfermedad = default(EntityRef<enfermedad>);
-			this._sintoma = default(EntityRef<sintoma>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_sintoma_enfermedad", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
-		public int id_sintoma_enfermedad
-		{
-			get
-			{
-				return this._id_sintoma_enfermedad;
-			}
-			set
-			{
-				if ((this._id_sintoma_enfermedad != value))
-				{
-					this.Onid_sintoma_enfermedadChanging(value);
-					this.SendPropertyChanging();
-					this._id_sintoma_enfermedad = value;
-					this.SendPropertyChanged("id_sintoma_enfermedad");
-					this.Onid_sintoma_enfermedadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_sintoma", DbType="Int NOT NULL")]
-		public int id_sintoma
-		{
-			get
-			{
-				return this._id_sintoma;
-			}
-			set
-			{
-				if ((this._id_sintoma != value))
-				{
-					if (this._sintoma.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_sintomaChanging(value);
-					this.SendPropertyChanging();
-					this._id_sintoma = value;
-					this.SendPropertyChanged("id_sintoma");
-					this.Onid_sintomaChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_enfermedad", DbType="Int NOT NULL")]
-		public int id_enfermedad
-		{
-			get
-			{
-				return this._id_enfermedad;
-			}
-			set
-			{
-				if ((this._id_enfermedad != value))
-				{
-					if (this._enfermedad.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_enfermedadChanging(value);
-					this.SendPropertyChanging();
-					this._id_enfermedad = value;
-					this.SendPropertyChanged("id_enfermedad");
-					this.Onid_enfermedadChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="enfermedad_sintoma_enfermedad", Storage="_enfermedad", ThisKey="id_enfermedad", OtherKey="id_enfermedad", IsForeignKey=true)]
-		public enfermedad enfermedad
-		{
-			get
-			{
-				return this._enfermedad.Entity;
-			}
-			set
-			{
-				enfermedad previousValue = this._enfermedad.Entity;
-				if (((previousValue != value) 
-							|| (this._enfermedad.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._enfermedad.Entity = null;
-						previousValue.sintoma_enfermedad.Remove(this);
-					}
-					this._enfermedad.Entity = value;
-					if ((value != null))
-					{
-						value.sintoma_enfermedad.Add(this);
-						this._id_enfermedad = value.id_enfermedad;
-					}
-					else
-					{
-						this._id_enfermedad = default(int);
-					}
-					this.SendPropertyChanged("enfermedad");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="sintoma_sintoma_enfermedad", Storage="_sintoma", ThisKey="id_sintoma", OtherKey="id_sintoma", IsForeignKey=true)]
-		public sintoma sintoma
-		{
-			get
-			{
-				return this._sintoma.Entity;
-			}
-			set
-			{
-				sintoma previousValue = this._sintoma.Entity;
-				if (((previousValue != value) 
-							|| (this._sintoma.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._sintoma.Entity = null;
-						previousValue.sintoma_enfermedad.Remove(this);
-					}
-					this._sintoma.Entity = value;
-					if ((value != null))
-					{
-						value.sintoma_enfermedad.Add(this);
-						this._id_sintoma = value.id_sintoma;
-					}
-					else
-					{
-						this._id_sintoma = default(int);
-					}
-					this.SendPropertyChanged("sintoma");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VistaEnfermedad")]
-	public partial class VistaEnfermedad
-	{
-		
-		private string _nombre;
-		
-		private string _descripcion;
-		
-		private string _sintoma;
-		
-		private string _recomendacion;
-		
-		public VistaEnfermedad()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
-		public string nombre
-		{
-			get
-			{
-				return this._nombre;
-			}
-			set
-			{
-				if ((this._nombre != value))
-				{
-					this._nombre = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
-		public string descripcion
-		{
-			get
-			{
-				return this._descripcion;
-			}
-			set
-			{
-				if ((this._descripcion != value))
-				{
-					this._descripcion = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_sintoma", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
-		public string sintoma
-		{
-			get
-			{
-				return this._sintoma;
-			}
-			set
-			{
-				if ((this._sintoma != value))
-				{
-					this._sintoma = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_recomendacion", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
-		public string recomendacion
-		{
-			get
-			{
-				return this._recomendacion;
-			}
-			set
-			{
-				if ((this._recomendacion != value))
-				{
-					this._recomendacion = value;
-				}
-			}
 		}
 	}
 	
@@ -3047,6 +2311,629 @@ namespace Modelo
 					this._razon_social = value;
 				}
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.recomendacion")]
+	public partial class recomendacion : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_recomendacion;
+		
+		private string _recomendacion1;
+		
+		private EntitySet<enfermedad> _enfermedad;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_recomendacionChanging(int value);
+    partial void Onid_recomendacionChanged();
+    partial void Onrecomendacion1Changing(string value);
+    partial void Onrecomendacion1Changed();
+    #endregion
+		
+		public recomendacion()
+		{
+			this._enfermedad = new EntitySet<enfermedad>(new Action<enfermedad>(this.attach_enfermedad), new Action<enfermedad>(this.detach_enfermedad));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_recomendacion", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_recomendacion
+		{
+			get
+			{
+				return this._id_recomendacion;
+			}
+			set
+			{
+				if ((this._id_recomendacion != value))
+				{
+					this.Onid_recomendacionChanging(value);
+					this.SendPropertyChanging();
+					this._id_recomendacion = value;
+					this.SendPropertyChanged("id_recomendacion");
+					this.Onid_recomendacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="recomendacion", Storage="_recomendacion1", DbType="VarChar(1000) NOT NULL", CanBeNull=false)]
+		public string recomendacion1
+		{
+			get
+			{
+				return this._recomendacion1;
+			}
+			set
+			{
+				if ((this._recomendacion1 != value))
+				{
+					this.Onrecomendacion1Changing(value);
+					this.SendPropertyChanging();
+					this._recomendacion1 = value;
+					this.SendPropertyChanged("recomendacion1");
+					this.Onrecomendacion1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="recomendacion_enfermedad", Storage="_enfermedad", ThisKey="id_recomendacion", OtherKey="id_recomendacion")]
+		public EntitySet<enfermedad> enfermedad
+		{
+			get
+			{
+				return this._enfermedad;
+			}
+			set
+			{
+				this._enfermedad.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_enfermedad(enfermedad entity)
+		{
+			this.SendPropertyChanging();
+			entity.recomendacion = this;
+		}
+		
+		private void detach_enfermedad(enfermedad entity)
+		{
+			this.SendPropertyChanging();
+			entity.recomendacion = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.sintoma_enfermedad")]
+	public partial class sintoma_enfermedad : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_sintoma_enfermedad;
+		
+		private int _id_sintoma;
+		
+		private int _id_enfermedad;
+		
+		private EntityRef<sintoma> _sintoma;
+		
+		private EntityRef<enfermedad> _enfermedad;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_sintoma_enfermedadChanging(int value);
+    partial void Onid_sintoma_enfermedadChanged();
+    partial void Onid_sintomaChanging(int value);
+    partial void Onid_sintomaChanged();
+    partial void Onid_enfermedadChanging(int value);
+    partial void Onid_enfermedadChanged();
+    #endregion
+		
+		public sintoma_enfermedad()
+		{
+			this._sintoma = default(EntityRef<sintoma>);
+			this._enfermedad = default(EntityRef<enfermedad>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_sintoma_enfermedad", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_sintoma_enfermedad
+		{
+			get
+			{
+				return this._id_sintoma_enfermedad;
+			}
+			set
+			{
+				if ((this._id_sintoma_enfermedad != value))
+				{
+					this.Onid_sintoma_enfermedadChanging(value);
+					this.SendPropertyChanging();
+					this._id_sintoma_enfermedad = value;
+					this.SendPropertyChanged("id_sintoma_enfermedad");
+					this.Onid_sintoma_enfermedadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_sintoma", DbType="Int NOT NULL")]
+		public int id_sintoma
+		{
+			get
+			{
+				return this._id_sintoma;
+			}
+			set
+			{
+				if ((this._id_sintoma != value))
+				{
+					if (this._sintoma.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_sintomaChanging(value);
+					this.SendPropertyChanging();
+					this._id_sintoma = value;
+					this.SendPropertyChanged("id_sintoma");
+					this.Onid_sintomaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_enfermedad", DbType="Int NOT NULL")]
+		public int id_enfermedad
+		{
+			get
+			{
+				return this._id_enfermedad;
+			}
+			set
+			{
+				if ((this._id_enfermedad != value))
+				{
+					if (this._enfermedad.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_enfermedadChanging(value);
+					this.SendPropertyChanging();
+					this._id_enfermedad = value;
+					this.SendPropertyChanged("id_enfermedad");
+					this.Onid_enfermedadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="sintoma_sintoma_enfermedad", Storage="_sintoma", ThisKey="id_sintoma", OtherKey="id_sintoma", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public sintoma sintoma
+		{
+			get
+			{
+				return this._sintoma.Entity;
+			}
+			set
+			{
+				sintoma previousValue = this._sintoma.Entity;
+				if (((previousValue != value) 
+							|| (this._sintoma.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._sintoma.Entity = null;
+						previousValue.sintoma_enfermedad.Remove(this);
+					}
+					this._sintoma.Entity = value;
+					if ((value != null))
+					{
+						value.sintoma_enfermedad.Add(this);
+						this._id_sintoma = value.id_sintoma;
+					}
+					else
+					{
+						this._id_sintoma = default(int);
+					}
+					this.SendPropertyChanged("sintoma");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="enfermedad_sintoma_enfermedad", Storage="_enfermedad", ThisKey="id_enfermedad", OtherKey="id_enfermedad", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public enfermedad enfermedad
+		{
+			get
+			{
+				return this._enfermedad.Entity;
+			}
+			set
+			{
+				enfermedad previousValue = this._enfermedad.Entity;
+				if (((previousValue != value) 
+							|| (this._enfermedad.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._enfermedad.Entity = null;
+						previousValue.sintoma_enfermedad.Remove(this);
+					}
+					this._enfermedad.Entity = value;
+					if ((value != null))
+					{
+						value.sintoma_enfermedad.Add(this);
+						this._id_enfermedad = value.id_enfermedad;
+					}
+					else
+					{
+						this._id_enfermedad = default(int);
+					}
+					this.SendPropertyChanged("enfermedad");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.sintoma")]
+	public partial class sintoma : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_sintoma;
+		
+		private string _sintoma1;
+		
+		private EntitySet<sintoma_enfermedad> _sintoma_enfermedad;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_sintomaChanging(int value);
+    partial void Onid_sintomaChanged();
+    partial void Onsintoma1Changing(string value);
+    partial void Onsintoma1Changed();
+    #endregion
+		
+		public sintoma()
+		{
+			this._sintoma_enfermedad = new EntitySet<sintoma_enfermedad>(new Action<sintoma_enfermedad>(this.attach_sintoma_enfermedad), new Action<sintoma_enfermedad>(this.detach_sintoma_enfermedad));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_sintoma", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_sintoma
+		{
+			get
+			{
+				return this._id_sintoma;
+			}
+			set
+			{
+				if ((this._id_sintoma != value))
+				{
+					this.Onid_sintomaChanging(value);
+					this.SendPropertyChanging();
+					this._id_sintoma = value;
+					this.SendPropertyChanged("id_sintoma");
+					this.Onid_sintomaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="sintoma", Storage="_sintoma1", DbType="VarChar(500) NOT NULL", CanBeNull=false)]
+		public string sintoma1
+		{
+			get
+			{
+				return this._sintoma1;
+			}
+			set
+			{
+				if ((this._sintoma1 != value))
+				{
+					this.Onsintoma1Changing(value);
+					this.SendPropertyChanging();
+					this._sintoma1 = value;
+					this.SendPropertyChanged("sintoma1");
+					this.Onsintoma1Changed();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="sintoma_sintoma_enfermedad", Storage="_sintoma_enfermedad", ThisKey="id_sintoma", OtherKey="id_sintoma")]
+		public EntitySet<sintoma_enfermedad> sintoma_enfermedad
+		{
+			get
+			{
+				return this._sintoma_enfermedad;
+			}
+			set
+			{
+				this._sintoma_enfermedad.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_sintoma_enfermedad(sintoma_enfermedad entity)
+		{
+			this.SendPropertyChanging();
+			entity.sintoma = this;
+		}
+		
+		private void detach_sintoma_enfermedad(sintoma_enfermedad entity)
+		{
+			this.SendPropertyChanging();
+			entity.sintoma = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.enfermedad")]
+	public partial class enfermedad : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_enfermedad;
+		
+		private string _nombre;
+		
+		private string _descripcion;
+		
+		private int _id_recomendacion;
+		
+		private EntitySet<sintoma_enfermedad> _sintoma_enfermedad;
+		
+		private EntityRef<recomendacion> _recomendacion;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_enfermedadChanging(int value);
+    partial void Onid_enfermedadChanged();
+    partial void OnnombreChanging(string value);
+    partial void OnnombreChanged();
+    partial void OndescripcionChanging(string value);
+    partial void OndescripcionChanged();
+    partial void Onid_recomendacionChanging(int value);
+    partial void Onid_recomendacionChanged();
+    #endregion
+		
+		public enfermedad()
+		{
+			this._sintoma_enfermedad = new EntitySet<sintoma_enfermedad>(new Action<sintoma_enfermedad>(this.attach_sintoma_enfermedad), new Action<sintoma_enfermedad>(this.detach_sintoma_enfermedad));
+			this._recomendacion = default(EntityRef<recomendacion>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_enfermedad", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int id_enfermedad
+		{
+			get
+			{
+				return this._id_enfermedad;
+			}
+			set
+			{
+				if ((this._id_enfermedad != value))
+				{
+					this.Onid_enfermedadChanging(value);
+					this.SendPropertyChanging();
+					this._id_enfermedad = value;
+					this.SendPropertyChanged("id_enfermedad");
+					this.Onid_enfermedadChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_nombre", DbType="VarChar(50) NOT NULL", CanBeNull=false)]
+		public string nombre
+		{
+			get
+			{
+				return this._nombre;
+			}
+			set
+			{
+				if ((this._nombre != value))
+				{
+					this.OnnombreChanging(value);
+					this.SendPropertyChanging();
+					this._nombre = value;
+					this.SendPropertyChanged("nombre");
+					this.OnnombreChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_descripcion", DbType="VarChar(1000) NOT NULL", CanBeNull=false)]
+		public string descripcion
+		{
+			get
+			{
+				return this._descripcion;
+			}
+			set
+			{
+				if ((this._descripcion != value))
+				{
+					this.OndescripcionChanging(value);
+					this.SendPropertyChanging();
+					this._descripcion = value;
+					this.SendPropertyChanged("descripcion");
+					this.OndescripcionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_recomendacion", DbType="Int NOT NULL")]
+		public int id_recomendacion
+		{
+			get
+			{
+				return this._id_recomendacion;
+			}
+			set
+			{
+				if ((this._id_recomendacion != value))
+				{
+					if (this._recomendacion.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_recomendacionChanging(value);
+					this.SendPropertyChanging();
+					this._id_recomendacion = value;
+					this.SendPropertyChanged("id_recomendacion");
+					this.Onid_recomendacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="enfermedad_sintoma_enfermedad", Storage="_sintoma_enfermedad", ThisKey="id_enfermedad", OtherKey="id_enfermedad")]
+		public EntitySet<sintoma_enfermedad> sintoma_enfermedad
+		{
+			get
+			{
+				return this._sintoma_enfermedad;
+			}
+			set
+			{
+				this._sintoma_enfermedad.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="recomendacion_enfermedad", Storage="_recomendacion", ThisKey="id_recomendacion", OtherKey="id_recomendacion", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public recomendacion recomendacion
+		{
+			get
+			{
+				return this._recomendacion.Entity;
+			}
+			set
+			{
+				recomendacion previousValue = this._recomendacion.Entity;
+				if (((previousValue != value) 
+							|| (this._recomendacion.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._recomendacion.Entity = null;
+						previousValue.enfermedad.Remove(this);
+					}
+					this._recomendacion.Entity = value;
+					if ((value != null))
+					{
+						value.enfermedad.Add(this);
+						this._id_recomendacion = value.id_recomendacion;
+					}
+					else
+					{
+						this._id_recomendacion = default(int);
+					}
+					this.SendPropertyChanged("recomendacion");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_sintoma_enfermedad(sintoma_enfermedad entity)
+		{
+			this.SendPropertyChanging();
+			entity.enfermedad = this;
+		}
+		
+		private void detach_sintoma_enfermedad(sintoma_enfermedad entity)
+		{
+			this.SendPropertyChanging();
+			entity.enfermedad = null;
 		}
 	}
 	

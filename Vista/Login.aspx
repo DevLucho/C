@@ -6,6 +6,7 @@
 <head runat="server">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="shortcut icon" href="img/hospital.png" />
     <title>Inicio de sesión</title>
     <link rel="stylesheet" type="text/css" href="css/style.css" />
     <link rel="preconnect" href="https://fonts.gstatic.com" />
@@ -42,7 +43,7 @@
                     </div>
                 </div>
                 <asp:Button ID="btnLogin" class="btn" type="submit" CommandName="entrar" runat="server" Text="Ingresar" OnClick="btnLogin_Click" />
-                <asp:Button ID="Button2" class="btn" runat="server" Text="Registrarme" CausesValidation="False" OnClick="Button2_Click"/>
+                <asp:Button ID="Button2" class="btn" runat="server" Text="Registrarme" CausesValidation="False" OnClick="Button2_Click" />
             </form>
         </div>
     </div>

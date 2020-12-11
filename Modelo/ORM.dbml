@@ -22,17 +22,6 @@
       <Association Name="ciudad_especialista" Member="especialista" ThisKey="id_ciudad" OtherKey="id_ciudad" Type="especialista" />
     </Type>
   </Table>
-  <Table Name="dbo.enfermedad" Member="enfermedad">
-    <Type Name="enfermedad">
-      <Column Name="id_enfermedad" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="descripcion" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="id_sintoma" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="id_recomendacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="enfermedad_sintoma_enfermedad" Member="sintoma_enfermedad" ThisKey="id_enfermedad" OtherKey="id_enfermedad" Type="sintoma_enfermedad" />
-      <Association Name="recomendacion_enfermedad" Member="recomendacion" ThisKey="id_recomendacion" OtherKey="id_recomendacion" Type="recomendacion" IsForeignKey="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.ente_salud" Member="ente_salud">
     <Type Name="ente_salud">
       <Column Name="id_ente" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -96,42 +85,11 @@
       <Association Name="rol_persona" Member="rol" ThisKey="id_rol" OtherKey="id_rol" Type="rol" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.recomendacion" Member="recomendacion">
-    <Type Name="recomendacion">
-      <Column Name="id_recomendacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="recomendacion" Member="recomendacion1" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Association Name="recomendacion_enfermedad" Member="enfermedad" ThisKey="id_recomendacion" OtherKey="id_recomendacion" Type="enfermedad" />
-    </Type>
-  </Table>
   <Table Name="dbo.rol" Member="rol">
     <Type Name="rol">
       <Column Name="id_rol" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
       <Column Name="rol" Member="rol1" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Association Name="rol_persona" Member="persona" ThisKey="id_rol" OtherKey="id_rol" Type="persona" />
-    </Type>
-  </Table>
-  <Table Name="dbo.sintoma" Member="sintoma">
-    <Type Name="sintoma">
-      <Column Name="id_sintoma" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="sintoma" Member="sintoma1" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Association Name="sintoma_sintoma_enfermedad" Member="sintoma_enfermedad" ThisKey="id_sintoma" OtherKey="id_sintoma" Type="sintoma_enfermedad" />
-    </Type>
-  </Table>
-  <Table Name="dbo.sintoma_enfermedad" Member="sintoma_enfermedad">
-    <Type Name="sintoma_enfermedad">
-      <Column Name="id_sintoma_enfermedad" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="id_sintoma" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="id_enfermedad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Association Name="enfermedad_sintoma_enfermedad" Member="enfermedad" ThisKey="id_enfermedad" OtherKey="id_enfermedad" Type="enfermedad" IsForeignKey="true" />
-      <Association Name="sintoma_sintoma_enfermedad" Member="sintoma" ThisKey="id_sintoma" OtherKey="id_sintoma" Type="sintoma" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.VistaEnfermedad" Member="VistaEnfermedad">
-    <Type Name="VistaEnfermedad">
-      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
-      <Column Name="descripcion" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="sintoma" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
-      <Column Name="recomendacion" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Table Name="dbo.VistaEspecialista" Member="VistaEspecialista">
@@ -145,6 +103,39 @@
       <Column Name="fech_expedicion_licen" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
       <Column Name="id_especialista" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="razon_social" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.recomendacion" Member="recomendacion">
+    <Type Name="recomendacion">
+      <Column Name="id_recomendacion" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="recomendacion" Member="recomendacion1" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Association Name="recomendacion_enfermedad" Member="enfermedad" ThisKey="id_recomendacion" OtherKey="id_recomendacion" Type="enfermedad" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sintoma_enfermedad" Member="sintoma_enfermedad">
+    <Type Name="sintoma_enfermedad">
+      <Column Name="id_sintoma_enfermedad" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="id_sintoma" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_enfermedad" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="sintoma_sintoma_enfermedad" Member="sintoma" ThisKey="id_sintoma" OtherKey="id_sintoma" Type="sintoma" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="enfermedad_sintoma_enfermedad" Member="enfermedad" ThisKey="id_enfermedad" OtherKey="id_enfermedad" Type="enfermedad" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.sintoma" Member="sintoma">
+    <Type Name="sintoma">
+      <Column Name="id_sintoma" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="sintoma" Member="sintoma1" Type="System.String" DbType="VarChar(500) NOT NULL" CanBeNull="false" />
+      <Association Name="sintoma_sintoma_enfermedad" Member="sintoma_enfermedad" ThisKey="id_sintoma" OtherKey="id_sintoma" Type="sintoma_enfermedad" />
+    </Type>
+  </Table>
+  <Table Name="dbo.enfermedad" Member="enfermedad">
+    <Type Name="enfermedad">
+      <Column Name="id_enfermedad" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="nombre" Type="System.String" DbType="VarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="descripcion" Type="System.String" DbType="VarChar(1000) NOT NULL" CanBeNull="false" />
+      <Column Name="id_recomendacion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="enfermedad_sintoma_enfermedad" Member="sintoma_enfermedad" ThisKey="id_enfermedad" OtherKey="id_enfermedad" Type="sintoma_enfermedad" />
+      <Association Name="recomendacion_enfermedad" Member="recomendacion" ThisKey="id_recomendacion" OtherKey="id_recomendacion" Type="recomendacion" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.sp_login" Method="sp_login">
