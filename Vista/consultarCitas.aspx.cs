@@ -52,19 +52,24 @@ namespace Vista
             {
                 if (e.Row.RowType == DataControlRowType.Header)
                 {
-                    e.Row.Cells[7].Visible = false;
                     e.Row.Cells[8].Visible = false;
+                    e.Row.Cells[9].Visible = false;
                 }
                 if (e.Row.RowType == DataControlRowType.DataRow)
                 {
-                    e.Row.Cells[7].Visible = false;
                     e.Row.Cells[8].Visible = false;
+                    e.Row.Cells[9].Visible = false;
                 }
             }
             else
             {
                 if (!IsPostBack)
                 {
+                    if (e.Row.RowType == DataControlRowType.Header)
+                    {
+                        e.Row.Cells[1].Visible = false;
+                    }
+
                     if (e.Row.RowType == DataControlRowType.DataRow && e.Row.DataItem != null)
                     {
                         DropDownList ddlList = new DropDownList();

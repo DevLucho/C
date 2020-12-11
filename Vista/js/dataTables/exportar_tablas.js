@@ -11,15 +11,15 @@ $(document).ready(function () {
                 dom: 'tp',
                 paging: 'true',
                 pagingType: 'simple',
-                searching: false
+                searching: true
             }
         },
         dom: 'Pfrtilp',
         columnDefs: [{
             searchPanes: {
-                show: false
+                show: true
             },
-            targets: [5]
+            targets: [2]
         }
         ],
         //para los botones de exportar  

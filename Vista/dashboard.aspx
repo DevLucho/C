@@ -109,7 +109,9 @@
     <div class="row justify-content-center">
         <% if (int.Parse(Session["idRol"].ToString()) == 1)
             { %>
-        <h5>Entes de salud pendientes por asignar usuario de contenido</h5>
+        <div class="col-12 text-center">
+            <h5>Entes de salud pendientes por asignar usuario de contenido</h5>
+        </div>
         <asp:GridView Width="100%" CellSpacing="0" class="table table-bordered table-hover tabla" ID="gdgGrid" runat="server" AutoGenerateColumns="False" OnRowDataBound="gdgGrid_RowDataBound" OnRowCommand="gdgGrid_RowCommand">
             <Columns>
                 <asp:BoundField DataField="id_ente" HeaderText="Id" />
