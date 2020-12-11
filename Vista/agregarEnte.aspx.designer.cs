@@ -15,15 +15,6 @@ namespace Vista
     {
 
         /// <summary>
-        /// Control NitId.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label NitId;
-
-        /// <summary>
         /// Control TextNit.
         /// </summary>
         /// <remarks>
@@ -31,15 +22,6 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextNit;
-
-        /// <summary>
-        /// Control RazonSocialId.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label RazonSocialId;
 
         /// <summary>
         /// Control TextRazonS.

@@ -36,7 +36,7 @@ namespace Vista
             ente_Salud.id_ciudad = int.Parse(DropDownList.SelectedValue.ToString());
             ente_Salud.capacidad_pacientes = int.Parse(TextCapacidad.Text);
             mensaje = clsEnte.Registrar(ente_Salud);
-            Page.RegisterStartupScript("script", "<script languaje=JavaScript>alert('" + mensaje + "');location.href='dashboard.aspx';</script>");
+            Page.RegisterStartupScript("script", "<script languaje=JavaScript>alert('" + mensaje + "');location.href='agregarEnte.aspx';</script>");
 
         }
     }

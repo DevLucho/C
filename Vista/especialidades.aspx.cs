@@ -13,10 +13,12 @@ namespace Vista
         {
             if (!IsPostBack)
             {
+
                 ClsEspecialista clsEspecialista = new ClsEspecialista();
                 gdgGrid.DataSource = clsEspecialista.consultarEspecialistas();
                 gdgGrid.DataBind();
-                gdgGrid.HeaderRow.TableSection = TableRowSection.TableHeader; // Agrega etiqueta: <thead> a la tabla
+                if (gdgGrid.Rows.Count != 0)
+                    gdgGrid.HeaderRow.TableSection = TableRowSection.TableHeader; // Agrega etiqueta: <thead> a la tabla
             }
         }
 
@@ -29,6 +31,17 @@ namespace Vista
                 Session["idEspecialista"] = gdgGrid.Rows[rowIndex].Cells[0].Text;
                 Session["nombreEspecialista"] = gdgGrid.Rows[rowIndex].Cells[1].Text;
                 Server.Transfer("crearCita.aspx");
+            }
+        }
+
+        protected void gdgGrid_RowDataBound(object sender, GridViewRowEventArgs e)
+        {
+            if (int.Parse(Session["idRol"].ToString()) == 2)
+            {
+                if (e.Row.RowType == DataControlRowType.Header)
+                    e.Row.Cells[7].Visible = false;
+                if (e.Row.RowType == DataControlRowType.DataRow)
+                    e.Row.Cells[7].Visible = false;
             }
         }
     }

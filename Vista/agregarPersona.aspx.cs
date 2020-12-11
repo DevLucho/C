@@ -12,9 +12,6 @@ namespace Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            /*
-            lblBienvenido.Text = "Bienvenido " + Session["nombre"] +" "+ Session["apellido"];
-            */
         }
 
         protected void btnRegistra_Click(object sender, EventArgs e)
@@ -31,8 +28,8 @@ namespace Vista
             persona.id_rol = 3;
             mensaje = clsPersona.Registrar(persona);
             // persona = new persona();
-
-            Response.Redirect(Request.Url.AbsoluteUri);
+            Page.RegisterStartupScript("script", "<script languaje=JavaScript>alert('"+mensaje+"');location.href='agregarPersona.aspx';</script>");
+            //Response.Redirect(Request.Url.AbsoluteUri);
         }
 
         protected void textPassword_TextChanged(object sender, EventArgs e)

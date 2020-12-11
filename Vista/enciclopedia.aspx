@@ -13,7 +13,7 @@
     <h4 style="margin: 10px 15px 0px 0px"><i class="fas fa-viruses mr-2"></i>Consultar enfermedades</h4>
     <hr>
     <asp:Panel ID="PanelForm" runat="server">
-            <center>
+        <center>
         <div class="row">
                 <div class="col-3">
                     <div class="field-wrap">
@@ -40,6 +40,7 @@
                 <asp:BoundField DataField="nombre" HeaderText="Nombre" />
                 <asp:BoundField DataField="recomendacion" HeaderText="Recomendacion" />
             </Columns>
+            <EmptyDataTemplate>No hay datos por mostrar.</EmptyDataTemplate>
         </asp:GridView>
     </asp:Panel>
 </asp:Content>

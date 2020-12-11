@@ -56,6 +56,22 @@ namespace Modelo
                    };
         }
 
+        public Object AllFindConsulCita(int id)
+        {
+            ORMDataContext BD = new ORMDataContext();
+            return from c in BD.cita where c.id_persona == id
+                   select new
+                   {
+                       id_cita = c.id_cita,
+                       fecha_cita = c.fecha_cita.ToShortDateString(),
+                       id_hora = c.hora_cita.hora,
+                       especialista = c.especialista.nombre,
+                       especialidad = c.especialista.especialidad.especialidad1,
+                       calificacion = c.calificacion,
+                       estado = c.estado
+                   };
+        }
+
 
         public List<cita> citaReservada(DateTime fecha)
         {
@@ -86,11 +102,11 @@ namespace Modelo
                     select h).First();
         }
 
-        public void CalificarCita(int calificacion, cita objCita)
+        public void CalificarCita(int calificacion, int id)
         {
             ORMDataContext BD = new ORMDataContext();
             var citaCalificada = (from c in BD.cita
-                                  where c.id_cita == objCita.id_cita
+                                  where c.id_cita == id
                                   select c).First();
             citaCalificada.calificacion = calificacion;
             citaCalificada.estado = "Atendido";
@@ -101,6 +117,12 @@ namespace Modelo
         {
             ORMDataContext BD = new ORMDataContext();
             return (from e in BD.cita where e.estado.Equals("Atendido") select e).Count();
+        }
+
+        static public int CountCitaSinCal(int id)
+        {
+            ORMDataContext BD = new ORMDataContext();
+            return (from e in BD.cita where e.id_persona == id && e.calificacion == null select e).Count();
         }
     }
 }

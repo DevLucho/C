@@ -94,21 +94,15 @@
             <!-- Menu para contenido -->
 
             <li class="nav-item">
-                <a class="nav-link" href="consultarCitas.aspx">
-                    <i class="far fa-calendar-alt"></i>
-                    <span>Consultar cita</span></a>
-            </li>
-
-            <li class="nav-item">
                 <a class="nav-link" href="agregarEspecialista.aspx">
                     <i class="fas fa-user-plus"></i>
                     <span>Crear especialista</span></a>
             </li>
 
             <li class="nav-item">
-                <a class="nav-link" href="enciclopedia.aspx">
-                    <i class="fas fa-viruses"></i>
-                    <span>Consultar enfermedades</span></a>
+                <a class="nav-link" href="especialidades.aspx">
+                    <i class="fas fa-user-md"></i>
+                    <span>Consultar especialista</span></a>
             </li>
 
             <%
@@ -122,8 +116,8 @@
 
             <li class="nav-item">
                 <a class="nav-link" href="consultarCitas.aspx">
-                    <i class="far fa-calendar-alt"></i>
-                    <span>Consultar cita</span></a>
+                    <i class="fas fa-star"></i>
+                    <span>Calificar citas</span></a>
             </li>
 
             <li class="nav-item">

@@ -28,19 +28,6 @@ namespace Vista
                 Session["apellido"] = persona.apellido;
                 Session["idRol"] = persona.id_rol;
                 Session["rol"] = clsRol.Rol(persona.id_rol);
-                /*
-                if (persona.id_rol == 1)
-                {
-                    Response.Redirect("dashAdmin.aspx",false);
-                }
-                else if (persona.id_rol ==2)
-                {
-                    Response.Redirect("dashContenido.aspx", false);
-                }
-                else if (persona.id_rol == 3)
-                {
-                    Response.Redirect("dashPersona.aspx", false);
-                }*/
                 Server.Transfer("dashboard.aspx");
             }
             else

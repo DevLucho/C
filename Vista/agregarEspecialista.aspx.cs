@@ -22,6 +22,15 @@ namespace Vista
             drpEspecialidad.DataValueField = "id_especialidad";
             drpEspecialidad.DataTextField = "especialidad1";
             drpEspecialidad.DataBind();
+
+            if (int.Parse(Session["idRol"].ToString()) == 2)
+            {
+                ClsEnteSalud ente = new ClsEnteSalud();
+                ddlEnte.DataSource = ente.EnteAsociado(int.Parse(Session["idPersona"].ToString()));
+                ddlEnte.DataValueField = "id_ente";
+                ddlEnte.DataTextField = "datos";
+                ddlEnte.DataBind();
+            }
         }
 
         protected void btnRegistarEspecialista_Click(object sender, EventArgs e)
@@ -29,7 +38,10 @@ namespace Vista
             string mensaje = string.Empty;
             ClsEspecialista especialistaDAO = new ClsEspecialista();
             especialista especialista = new especialista();
-            especialista.id_ente = especialistaDAO.idPersonaEnte(int.Parse(Session["idPersona"].ToString()));
+            if (int.Parse(Session["idRol"].ToString()) == 2)
+            {
+                especialista.id_ente = int.Parse(ddlEnte.SelectedValue.ToString());
+            }
             especialista.nombre = TextNombre.Text;
             especialista.correo = TextCorreo.Text;
             especialista.celular = TextCelular.Text;
@@ -37,7 +49,8 @@ namespace Vista
             especialista.id_ciudad = int.Parse(drpCiudad.SelectedValue.ToString());
             especialista.num_licencia = int.Parse(TextNumLicencia.Text);
             especialista.fech_expedicion_licen = DateTime.Parse(TextFechaE.Text);
-            especialistaDAO.Registrar(especialista);
+            mensaje = especialistaDAO.Registrar(especialista);
+            Page.RegisterStartupScript("script", "<script languaje=JavaScript>alert('" + mensaje + "');location.href='agregarEspecialista.aspx';</script>");
         }
     }
 }

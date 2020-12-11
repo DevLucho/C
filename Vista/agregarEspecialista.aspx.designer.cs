@@ -15,15 +15,6 @@ namespace Vista
     {
 
         /// <summary>
-        /// Control NombreID.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label NombreID;
-
-        /// <summary>
         /// Control TextNombre.
         /// </summary>
         /// <remarks>
@@ -31,15 +22,6 @@ namespace Vista
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.TextBox TextNombre;
-
-        /// <summary>
-        /// Control CorreoID.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.Label CorreoID;
 
         /// <summary>
         /// Control TextCorreo.
@@ -60,6 +42,15 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox TextCelular;
 
         /// <summary>
+        /// Control drpCiudad.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.DropDownList drpCiudad;
+
+        /// <summary>
         /// Control TextNumLicencia.
         /// </summary>
         /// <remarks>
@@ -69,13 +60,13 @@ namespace Vista
         protected global::System.Web.UI.WebControls.TextBox TextNumLicencia;
 
         /// <summary>
-        /// Control drpCiudad.
+        /// Control TextFechaE.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList drpCiudad;
+        protected global::System.Web.UI.WebControls.TextBox TextFechaE;
 
         /// <summary>
         /// Control drpEspecialidad.
@@ -87,13 +78,13 @@ namespace Vista
         protected global::System.Web.UI.WebControls.DropDownList drpEspecialidad;
 
         /// <summary>
-        /// Control TextFechaE.
+        /// Control ddlEnte.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.TextBox TextFechaE;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEnte;
 
         /// <summary>
         /// Control btnRegistarEspecialista.

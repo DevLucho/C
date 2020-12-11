@@ -18,7 +18,7 @@
     <h4 style="margin: 10px 15px 0px 0px"><i class="fas fa-user-md mr-2"></i>Consultar especialistas</h4>
     <hr>
     <div class="col-12 table-responsive-md mt-3 mb-3">
-        <asp:GridView Width="100%" CellSpacing="0" class="table table-bordered table-hover tabla" ID="gdgGrid" runat="server" AutoGenerateColumns="False" OnRowCommand="gdgGrid_RowCommand">
+        <asp:GridView Width="100%" CellSpacing="0" class="table table-bordered table-hover tabla" ID="gdgGrid" runat="server" AutoGenerateColumns="False" OnRowDataBound="gdgGrid_RowDataBound" OnRowCommand="gdgGrid_RowCommand">
             <Columns>
                 <asp:BoundField DataField="id" HeaderText="Id" />
                 <asp:BoundField DataField="nombre" HeaderText="Nombre" />
@@ -30,10 +30,13 @@
 
                 <asp:TemplateField HeaderText="Agendar cita">
                     <ItemTemplate>
-                        <asp:ImageButton ID="imgSelec" CommandName="Seleccionar" ImageUrl="~/img/calendar.png" Width="25px" runat="server" />
+                        <center>
+                            <asp:ImageButton ID="imgSelec" CommandName="Seleccionar" ImageUrl="~/img/calendar.png" Width="25px" runat="server" />
+                        </center>
                     </ItemTemplate>
                 </asp:TemplateField>
             </Columns>
+            <EmptyDataTemplate>No hay datos por mostrar.</EmptyDataTemplate>
         </asp:GridView>
     </div>
 </asp:Content>
