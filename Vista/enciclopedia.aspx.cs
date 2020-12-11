@@ -10,32 +10,28 @@ namespace Vista
 {
     public partial class enciclopedia1 : System.Web.UI.Page
     {
+
+        protected List<enfermedad> enfermedad;
+        protected List<sintoma_enfermedad> sintomas;
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                pnlDatos.Visible = false;
                 ClsEnfermedad clsEnfermedad = new ClsEnfermedad();
-                DropDownEnfermedad.DataSource = clsEnfermedad.ConsultarTodos();
-                DropDownEnfermedad.DataValueField = "id_enfermedad";
-                DropDownEnfermedad.DataTextField = "nombre";
-                DropDownEnfermedad.DataBind();
-
-                DropDownSintoma.DataSource = clsEnfermedad.ConsultarTodosSintomas();
-                DropDownSintoma.DataValueField = "id_sintoma";
-                DropDownSintoma.DataTextField = "sintoma1";
-                DropDownSintoma.DataBind();
-
+                ddlEnfermedad.DataSource = clsEnfermedad.ConsultarTodos();
+                ddlEnfermedad.DataValueField = "id_enfermedad";
+                ddlEnfermedad.DataTextField = "nombre";
+                ddlEnfermedad.DataBind();
             }
         }
 
         protected void btnConsultarSintoma_Click(object sender, EventArgs e)
         {
-            ClsEnfermedad clsEnfermedad = new ClsEnfermedad();
-            enfermedad enfermedad = new enfermedad();
-            gdgGrid.DataSource = clsEnfermedad.ConsultarEnfermedad(DropDownEnfermedad.SelectedItem.Text, DropDownSintoma.SelectedItem.Text);
-            gdgGrid.DataBind();
-            if (gdgGrid.Rows.Count != 0)
-                gdgGrid.HeaderRow.TableSection = TableRowSection.TableHeader; // Agrega etiqueta: <thead> a la tabla
+            enfermedad = ClsEnfermedad.ConsultarEnfermedad(int.Parse(ddlEnfermedad.SelectedValue.ToString()));
+            sintomas = ClsEnfermedad.ConsultarSintomas(int.Parse(ddlEnfermedad.SelectedValue.ToString()));
+            pnlDatos.Visible = true;
         }
     }
 }

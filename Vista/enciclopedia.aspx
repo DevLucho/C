@@ -12,36 +12,47 @@
 <asp:Content ID="Content2" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <h4 style="margin: 10px 15px 0px 0px"><i class="fas fa-viruses mr-2"></i>Consultar enfermedades</h4>
     <hr>
-    <asp:Panel ID="PanelForm" runat="server">
-        <center>
-        <div class="row">
-                <div class="col-3">
-                    <div class="field-wrap">
-                        <label for="Enfermedad">Enfermedad</label>
-                        <asp:DropDownList class="js-example-basic-single form-control" ID="DropDownEnfermedad" runat="server">
-                        </asp:DropDownList>
-                    </div>
-                </div>
-                <div class="col-3">
-                    <div class="field-wrap">
-                        <label for="Sintoma">Sintoma</label>
-                        <asp:DropDownList class="js-example-basic-single form-control" ID="DropDownSintoma" runat="server">
-                        </asp:DropDownList>
-                    </div>
-                </div>
-                <div class="col">
-                    <asp:Button runat="server" class="btn btn-primary" name="sintoma" ID="btnConsultarSintoma" Text="Consultar" OnClick="btnConsultarSintoma_Click" />
-                </div>
+    <asp:Panel ID="pnl" runat="server">
+        <div class="row justify-content-center">
+            <div class="col-12">
+                <label for="Enfermedad">Enfermedad</label>
+                <asp:DropDownList class="js-example-basic-single form-control" ID="ddlEnfermedad" runat="server">
+                </asp:DropDownList>
+            </div>
+            <div class="col-12 mt-4">
+                <asp:Button runat="server" class="btn btn-primary" name="sintoma" ID="btnConsultarSintoma" Text="Consultar" OnClick="btnConsultarSintoma_Click" />
+            </div>
         </div>
-            </center>
-
-        <asp:GridView Width="100%" CellSpacing="0" class="table table-bordered table-hover tabla" ID="gdgGrid" runat="server" AutoGenerateColumns="False">
-            <Columns>
-                <asp:BoundField DataField="nombre" HeaderText="Nombre" />
-                <asp:BoundField DataField="recomendacion" HeaderText="Recomendacion" />
-            </Columns>
-            <EmptyDataTemplate>No hay datos por mostrar.</EmptyDataTemplate>
-        </asp:GridView>
+    </asp:Panel>
+    <asp:Panel ID="pnlDatos" runat="server">
+        <div class="row">
+            <% foreach (var item in enfermedad)
+                {%>
+            <div class="col-12 text-center">
+                <h3><% Response.Write(item.nombre); %></h3>
+                <hr />
+            </div>
+            <div class="col-12">
+                <h3>Descripción</h3>
+                <p><% Response.Write(item.descripcion); %></p>
+                <hr />
+            </div>
+            <div class="col-6">
+                <h3>Recomendaciones</h3>
+                <p><% Response.Write(item.recomendacion.recomendacion1); %></p>
+            </div>
+            <%} %>
+            <div class="col-6">
+                <h3>Sintomas</h3>
+                <hr />
+                <% foreach (var item2 in sintomas)
+                    { %>
+                <u>
+                    <li><% Response.Write(item2.sintoma.sintoma1); %></li>
+                </u>
+                <%} %>
+            </div>
+        </div>
     </asp:Panel>
 </asp:Content>
 

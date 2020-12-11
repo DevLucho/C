@@ -15,31 +15,22 @@ namespace Vista
     {
 
         /// <summary>
-        /// Control PanelForm.
+        /// Control pnl.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.Panel PanelForm;
+        protected global::System.Web.UI.WebControls.Panel pnl;
 
         /// <summary>
-        /// Control DropDownEnfermedad.
+        /// Control ddlEnfermedad.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownEnfermedad;
-
-        /// <summary>
-        /// Control DropDownSintoma.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.DropDownList DropDownSintoma;
+        protected global::System.Web.UI.WebControls.DropDownList ddlEnfermedad;
 
         /// <summary>
         /// Control btnConsultarSintoma.
@@ -51,12 +42,12 @@ namespace Vista
         protected global::System.Web.UI.WebControls.Button btnConsultarSintoma;
 
         /// <summary>
-        /// Control gdgGrid.
+        /// Control pnlDatos.
         /// </summary>
         /// <remarks>
         /// Campo generado automáticamente.
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
-        protected global::System.Web.UI.WebControls.GridView gdgGrid;
+        protected global::System.Web.UI.WebControls.Panel pnlDatos;
     }
 }
