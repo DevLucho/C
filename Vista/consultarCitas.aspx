@@ -26,6 +26,7 @@
         <asp:GridView Width="100%" CellSpacing="0" class="table table-bordered table-hover tabla" ID="gdgGrid" runat="server" AutoGenerateColumns="False" OnRowCommand="gdgGrid_RowCommand" OnRowDataBound="gdgGrid_RowDataBound" OnSelectedIndexChanged="gdgGrid_SelectedIndexChanged">
             <Columns>
                 <asp:BoundField DataField="id_cita" HeaderText="Id cita" />
+                <asp:BoundField DataField="nombre" HeaderText="Persona atendida:" />
                 <asp:BoundField DataField="fecha_cita" HeaderText="Fecha" />
                 <asp:BoundField DataField="id_hora" HeaderText="Hora" />
                 <asp:BoundField DataField="especialista" HeaderText="Atendido por:" />

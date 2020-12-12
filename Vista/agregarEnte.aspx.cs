@@ -12,11 +12,14 @@ namespace Vista
     {
         protected void Page_Load(object sender, EventArgs e)
         {
-            ClsCiudad ciudadDAO = new ClsCiudad();
-            DropDownList.DataSource = ciudadDAO.consularTodo();
-            DropDownList.DataValueField = "id_Ciudad";
-            DropDownList.DataTextField = "ciudad1";
-            DropDownList.DataBind();
+            if (!IsPostBack)
+            {
+                ClsCiudad ciudadDAO = new ClsCiudad();
+                DropDownList.DataSource = ciudadDAO.consularTodo();
+                DropDownList.DataValueField = "id_ciudad";
+                DropDownList.DataTextField = "ciudad1";
+                DropDownList.DataBind();
+            }
         }
 
         protected void btnRegistrarEnte_Click(object sender, EventArgs e)

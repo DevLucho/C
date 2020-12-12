@@ -13,7 +13,6 @@ namespace Vista
         {
             if (!IsPostBack)
             {
-
                 ClsEspecialista clsEspecialista = new ClsEspecialista();
                 gdgGrid.DataSource = clsEspecialista.consultarEspecialistas();
                 gdgGrid.DataBind();

@@ -22,7 +22,10 @@
                         </div>
                         <ul class="list-group list-group-flush">
                             <li class="list-group-item"><b>Nombre:</b><br> <%Response.Write(e.nombre);%></li>
+                            <% if (e.id_ente != null)
+                                { %>
                             <li class="list-group-item"><b>Ente de salud:</b><br> <%Response.Write(e.ente_salud.razon_social); %></li>
+                            <% } %>
                             <li class="list-group-item"><b>Correo electronico:</b><br> <%Response.Write(e.correo);%></li>
                             <li class="list-group-item"><b>Celular:</b><br> <%Response.Write(e.celular); %></li>
                             <li class="list-group-item"><b>Ciudad:</b><br> <%Response.Write(e.ciudad.ciudad1); %></li>

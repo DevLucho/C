@@ -31,6 +31,7 @@ namespace Modelo
                    select new
                    {
                        id_cita = c.id_cita,
+                       nombre = c.persona.nombre,
                        fecha_cita = c.fecha_cita.ToShortDateString(),
                        id_hora = c.hora_cita.hora,
                        especialista = c.especialista.nombre,
@@ -47,6 +48,7 @@ namespace Modelo
                    select new
                    {
                        id_cita = c.id_cita,
+                       nombre = c.persona.nombre + " " + c.persona.apellido,
                        fecha_cita = c.fecha_cita.ToShortDateString(),
                        id_hora = c.hora_cita.hora,
                        especialista = c.especialista.nombre,
@@ -77,7 +79,7 @@ namespace Modelo
         {
             ORMDataContext BD = new ORMDataContext();
             return (from c in BD.cita
-                    where c.estado.Equals("Reservada") && c.fecha_cita == fecha
+                    where (c.estado.Equals("Reservada") || c.estado.Equals("Atendido")) && c.fecha_cita == fecha
                     select c).ToList();
         }
         public Object consularHora()
